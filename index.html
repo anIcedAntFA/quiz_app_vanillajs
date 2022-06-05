@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App 1.0</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./dist/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main class="app__wrapper">
+        <!--* Header *-->
+        <header class="app__header" data-app-header>
+          <h2 class="app__heading" data-app-heading>Javascript Quiz App 1.0</h2>
+          <div class="app__language">
+            <i class="fa-solid fa-language"></i>
+            <span class="item-label tag tag-green">Vietnamese</span>
+          </div>
+          <div class="app__theme">
+            <i class="fa-solid fa-moon" data-dark-theme-toggle></i>
+            <span class="tag tag-purple" data-dark-theme-label>Dark</span>
+          </div>
+        </header>
+
+        <!--* Home *-->
+        <section class="app__home" data-app-home>
+          <p class="home__title">Welcome to the Quiz! 🐳</p>
+          <form action="" class="form__group" data-form-group>
+            <label for="input" class="form__label"
+              >Do you have a 🔥<span>Cool Nickname</span>🔥</label
+            >
+            <input
+              id="input"
+              type="text"
+              placeholder="Let's type your cool nickname, then press 🚀CONTINUE🚀"
+              class="form__control"
+              data-form-control
+            />
+            <span class="form__message" data-form-message></span>
+          </form>
+        </section>
+
+        <!--* Info *-->
+        <section class="app__info hide" data-app-info>
+          <p class="info__title">Rules of this Quiz</p>
+          <hr />
+          <div class="info__list" data-info-list></div>
+          <hr />
+        </section>
+
+        <!--* Questions *-->
+        <section class="question__wrapper hide" data-question-wrapper>
+          <p class="question__state" data-question-state>Question 1 of 5</p>
+          <time class="app__timer" data-app-timer>Time: 1:30</time>
+          <p class="question__title" data-question-title></p>
+          <div class="question__answers" data-question-answers></div>
+        </section>
+
+        <!--* Result *-->
+        <section class="app__result mt-4 hide" data-app-result>
+          <h2 class="result__title" data-result-title>
+            <i class="fa-solid fa-graduation-cap"></i>
+            Quiz Result
+          </h2>
+          <p class="result__description" data-result-description></p>
+          <div class="result__table" data-result-table></div>
+        </section>
+
+        <!--* Leaderboard *-->
+        <section class="app__leaderboard mt-4 hide" data-app-leaderboard>
+          <h2 class="leaderboard__title" data-leaderboard-title>
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            Leaderboard
+            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          </h2>
+          <div class="leaderboard__table" data-leaderboard-table></div>
+          <p class="leaderboard__description" data-leaderboard-description>
+            Well done guys 😍‼️ Especially 🔥<span>ngockhoi96</span>🔥,
+            <br />
+            you have reached a <span>top 1</span> ranking 🚀🚀🚀.
+          </p>
+        </section>
+
+        <!--* Controls *-->
+        <section class="app__controls" data-app-controls>
+          <button class="btn btn-continue" data-btn-continue>
+            <i class="fa-solid fa-angle-right"></i>
+            Continue
+          </button>
+          <button class="btn btn-exit hide" data-btn-exit>
+            <i class="fa-solid fa-house"></i>
+            Exit
+          </button>
+          <button class="btn btn-start hide" data-btn-start>
+            <i class="fa-solid fa-play"></i>
+            Start
+          </button>
+          <button class="btn btn-next hide" data-btn-next>
+            <i class="fa-solid fa-angles-right"></i>
+            Next
+          </button>
+          <button class="btn btn-restart hide" data-btn-restart>
+            <i class="fa-solid fa-retweet"></i>
+            Restart
+          </button>
+          <button class="btn btn-high-scores" data-btn-high-scores>
+            <i class="fa-solid fa-crown"></i>
+            Scores
+          </button>
+        </section>
+
+        <!--* Footer *-->
+        <footer class="app__footer">
+          <div class="footer__copyright">
+            Copyright © 2022 - Built with
+            <span>Vanilla</span>
+            <i class="fa-brands fa-js-square"></i>
+            by
+            <a href="https://github.com/anIcedAntFA" target="_blank">
+              <span><strong>ngockhoi96</strong></span>
+            </a>
+          </div>
+          <div class="footer__github-link">
+            Find an issue with this app?
+            <br />
+            <a href="https://github.com/anIcedAntFA/My-Todo-Lists" target="_blank">
+              <span>Fix it on Github</span>
+            </a>
+          </div>
+        </footer>
+      </main>
+      <!--* Modal *-->
+      <!-- <div class="modal__overlay">
+        <div class="modal__leaderboard modal-container modal--error">
+          <h3 class="modal__header">Error!!!</h3>
+          <span class="modal__close-icon">
+            <i class="fa-solid fa-rectangle-xmark"></i>
+          </span>
+          <p class="modal__body">
+            Hiện tại chưa có đứa nào trên bảng xếp hạng cả, hãy là người chơi đầu tiên nào man!
+          </p>
+          <button class="modal__close-btn btn btn-close">
+            <i class="fa-solid fa-xmark"></i>
+            Close
+          </button>
+        </div>
+      </div> -->
+    </div>
+    <script src="./src/js/variables.js"></script>
+    <script type="module" src="./src/js/index.js"></script>
+  </body>
+</html>

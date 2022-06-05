@@ -1,0 +1,47 @@
+.app__leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.leaderboard__title {
+  grid-area: result-title;
+  justify-self: center;
+
+  // min-width: 40rem;
+  // width: 80%;
+  padding: 1rem 4rem;
+  border: 3px dashed var(--state-correct);
+  border-radius: var(--border-radius-primary);
+
+  text-align: center;
+  font-family: 'fira-code-bold', sans-serif;
+  font-size: var(--font-size-lg);
+  color: var(--green);
+}
+
+.leaderboard__table {
+  max-height: 21.2rem;
+  overflow-y: scroll;
+}
+
+.leaderboard__description {
+  text-align: center;
+
+  span {
+    font-family: 'burbank-big-condensed', sans-serif;
+    font-size: var(--font-size-med);
+    letter-spacing: 2.4px;
+    color: var(--pink);
+  }
+
+  span:last-child {
+    text-transform: uppercase;
+  }
+}

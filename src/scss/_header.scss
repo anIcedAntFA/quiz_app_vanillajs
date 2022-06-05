@@ -1,0 +1,80 @@
+.app__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__heading {
+  // min-width: 40rem;
+  padding: 1.2rem 3.6rem;
+  border-radius: var(--border-radius-primary);
+
+  text-align: center;
+  font-family: 'fira-code-bold', sans-serif;
+  font-family: 'cubano', sans-serif;
+
+  font-size: var(--font-size-lg);
+  text-transform: uppercase;
+  background-color: var(--orange);
+  color: var(--gray0);
+}
+
+.app__theme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  & span {
+    position: absolute;
+    transform: scale(0) translateX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover span {
+    transform: scale(1) translateY(45px);
+  }
+
+  & i {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
+  &:hover i[class*='fa-moon'] {
+    color: var(--purple);
+  }
+
+  &:hover i[class*='fa-sun'] {
+    color: var(--yellow);
+  }
+}
+
+.app__language {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  & span {
+    position: absolute;
+    transform: scale(0) translateX(0);
+    transition: transform 0.2s ease;
+  }
+
+  &:hover span {
+    transform: scale(1) translateY(45px);
+  }
+
+  & i {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+  }
+
+  &:hover i {
+    color: var(--state-correct);
+  }
+}

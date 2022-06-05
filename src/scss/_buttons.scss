@@ -1,0 +1,110 @@
+.btn {
+  padding: 1.6rem 2rem;
+  border-radius: var(--border-radius-primary);
+
+  letter-spacing: inherit;
+  color: var(--gray0);
+  transition: all 0.4s ease;
+}
+
+.btn-outline {
+  border: 2px solid var(--state-neutral);
+  background-color: var(--gray1);
+  color: var(--gray6);
+}
+
+.btn-outline:hover {
+  background-color: var(--state-neutral);
+  color: var(--text-color);
+  transition: all 0.4s ease;
+}
+
+.btn.correct {
+  border: 2px solid var(--state-correct);
+  background-color: var(--state-correct);
+  color: var(--gray6);
+}
+
+.btn.wrong {
+  border: 2px solid var(--state-wrong);
+  background-color: var(--state-wrong);
+  color: var(--gray0);
+}
+
+.btn-continue,
+.btn-start,
+.btn-next,
+.btn-restart,
+.btn-high-scores,
+.btn-exit,
+.btn-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  height: 6rem;
+
+  font-family: 'cubano', sans-serif;
+  font-size: var(--font-size-med);
+  letter-spacing: 2px;
+  box-shadow: var(--card-shadow);
+  background-color: var(--state-neutral);
+
+  &.hide {
+    display: none;
+  }
+}
+
+.btn-continue:hover,
+.btn-start:hover,
+.btn-next:hover,
+.btn-restart:hover,
+.btn-high-scores:hover,
+.btn-exit:hover {
+  transform: scale(1.2);
+  transition: all 0.4s ease;
+}
+
+.btn-continue,
+.btn-start {
+  width: 18rem;
+  margin-left: 8rem;
+}
+
+.btn-next {
+  margin-top: 4rem;
+}
+
+.btn-restart,
+.btn-exit {
+  justify-self: center;
+}
+
+.btn-exit {
+  width: 18rem;
+  padding: 1rem 2rem;
+  border: 4px solid var(--state-wrong);
+
+  background-color: var(--background);
+  color: var(--state-wrong);
+
+  &:hover {
+    background-color: var(--state-wrong);
+    color: var(--gray0);
+  }
+}
+
+.btn-high-scores {
+  width: 18rem;
+  background-color: var(--state-correct);
+}
+
+.btn-close {
+  background-color: var(--state-wrong);
+
+  &:hover {
+    transform: scale(1.1);
+    transition: all 0.4s ease;
+  }
+}

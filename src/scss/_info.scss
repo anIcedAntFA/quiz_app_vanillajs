@@ -1,0 +1,50 @@
+.app__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-top: 4rem;
+
+  color: var(--text-color);
+
+  &.hide {
+    display: none;
+  }
+}
+
+.info__title,
+.form__label {
+  font-family: 'fira-code-bold', serif;
+  font-size: var(--font-size-med);
+}
+
+.info__title {
+  margin-bottom: 1rem;
+}
+
+.info__list {
+  text-align: justify;
+  letter-spacing: normal;
+
+  & p {
+    line-height: 2.4rem;
+  }
+
+  p span {
+    font-family: 'fira-code-bold', serif;
+  }
+
+  p:nth-child(1) span {
+    color: var(--state-neutral);
+  }
+
+  p:nth-child(4) span {
+    color: var(--state-correct);
+  }
+
+  p:nth-child(5) span {
+    color: var(--state-wrong);
+  }
+}

@@ -1,0 +1,67 @@
+$colors: (
+  red: hsl(348, 100%, 61%),
+  blue: hsl(218, 96%, 64%),
+  orange: hsl(21, 95%, 62%),
+  green: hsl(154, 91%, 40%),
+  purple: hsl(265, 50%, 60%),
+  yellow: hsl(48, 100%, 67%),
+  pink: hsl(337, 100%, 63%),
+);
+
+@mixin default-theme {
+  --background: var(--gray0);
+  --text-color: var(--gray5);
+  --h-color: var(--gray6);
+  --card-shadow: 0 4px 8px rgba(0, 30, 84, 0.12);
+  --overlay-bg: rgba(255, 255, 255, 0.9);
+  --h-border: 1.6px dashed var(--gray2);
+  transition: all 0.4s ease;
+}
+
+.light-theme {
+  @include default-theme;
+}
+
+.dark-theme {
+  --background: var(--gray6);
+  --text-color: var(--gray0);
+  --h-color: white;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.38);
+  --overlay-bg: rgba(0, 0, 0, 0.9);
+  --h-border: 1.6px dashed var(--gray2);
+  transition: all 0.3s ease;
+}
+
+:root {
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+    --#{$name}-dark: #{darken($color, 8%)};
+    --#{$name}-light: #{lighten($color, 8%)};
+  }
+
+  --yellow-js: hsl(52, 84%, 63%);
+  --yellow-vanilla: hsl(55, 100%, 86%);
+  --white: hsl(0, 0%, 100%);
+  --gray0: hsl(0, 0%, 97%);
+  --gray1: hsl(212, 22%, 88%);
+  --gray2: hsl(213, 21%, 75%);
+  --gray3: hsl(206, 10%, 47%);
+  --gray4: hsl(208, 11%, 30%);
+  --gray5: hsl(218, 12%, 19%);
+  --gray6: hsl(200, 20%, 9%);
+
+  --state-neutral: var(--blue);
+  --state-correct: var(--green);
+  --state-wrong: var(--red);
+  --state-warning: var(--orange);
+
+  --font-size-s: 1.3rem;
+  --font-size-body: 1.6rem;
+  --font-size-med: 2.4rem;
+  --font-size-lg: 3.2rem;
+  --font-size-xlg: 4.8rem;
+
+  --border-radius-primary: 1.2rem;
+
+  @include default-theme;
+}

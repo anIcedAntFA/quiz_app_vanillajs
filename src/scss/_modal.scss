@@ -1,0 +1,71 @@
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-container {
+  position: relative;
+  padding: 2rem;
+  width: 60rem;
+  height: auto;
+  border-radius: var(--border-radius-primary);
+}
+
+.modal__leaderboard {
+  display: grid;
+  align-items: center;
+  grid-gap: 4rem;
+  grid-template-areas:
+    'modal-header modal-close-icon'
+    'modal-body modal-body'
+    'modal-close-btn modal-close-btn';
+  grid-template-columns: 3fr 1fr;
+
+  background-color: var(--gray0);
+}
+
+.modal__header {
+  grid-area: 'modal-header';
+
+  width: 100%;
+  padding: 1.6rem 3.2rem;
+  border-radius: var(--border-radius-primary);
+
+  font-family: 'fira-code-semi-bold', sans-serif;
+  font-size: var(--font-size-lg);
+  color: var(--gray0);
+
+  .modal__leaderboard.modal--error & {
+    background-color: var(--state-wrong);
+  }
+
+  .modal__leaderboard.modal--warning & {
+    background-color: var(--state-warning);
+  }
+}
+
+.modal__close-icon {
+  grid-area: 'modal-close-icon';
+}
+
+.modal__body {
+  grid-area: 'modal-body';
+  line-height: 2;
+}
+
+.modal__close-btn {
+  grid-area: 'modal-close-btn';
+
+  i {
+    font-size: 3.2rem;
+  }
+}

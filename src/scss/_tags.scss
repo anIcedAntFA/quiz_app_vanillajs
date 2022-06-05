@@ -1,0 +1,40 @@
+.tag {
+  margin: 4px 1.6px;
+  padding: 4px 12px;
+  display: inline-block;
+  border-radius: 4px;
+
+  font-family: 'cubano', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.tag-blue {
+  background: var(--blue);
+  color: var(--gray0);
+}
+
+.tag-green {
+  background: var(--green);
+  color: var(--gray0);
+}
+
+.tag-orange {
+  background: var(--orange);
+  color: var(--gray0);
+}
+
+.tag-yellow {
+  background: var(--yellow);
+  color: var(--gray0);
+}
+
+.tag-purple {
+  background: var(--purple);
+  color: var(--gray0);
+}
+
+.tag-pink {
+  background: var(--pink);
+  color: var(--gray0);
+}

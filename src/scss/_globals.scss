@@ -1,0 +1,101 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'fira-code-medium', sans-serif;
+  font-size: var(--font-size-body);
+  letter-spacing: 1.4px;
+  line-height: 1.4;
+
+  background-color: var(--state-neutral);
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+body.correct {
+  background-color: var(--state-correct);
+}
+
+body.wrong {
+  background-color: var(--state-wrong);
+}
+
+hr {
+  width: 100%;
+  border: var(--h-border);
+}
+
+a,
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--state-neutral);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+button > i {
+  font-size: 2.2rem;
+}
+
+table,
+th,
+td {
+  border: 2px solid var(--state-correct);
+  border-collapse: collapse;
+}
+
+table {
+  border-radius: var(--border-radius-primary);
+  text-align: center;
+}
+
+th {
+  padding: 1rem 2rem;
+}
+
+td {
+  padding: 8px;
+}
+
+.mt-4 {
+  margin-top: 4rem;
+}
+
+.hide {
+  display: none;
+}
+
+.app__wrapper {
+  max-width: 72rem;
+  padding: 2.4rem 3.2rem;
+  border: 4px solid var(--orange);
+  border-radius: var(--border-radius-primary);
+
+  background-color: var(--background);
+  box-shadow: 0 0 4px 2px;
+}

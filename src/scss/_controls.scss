@@ -1,0 +1,14 @@
+.app__controls {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+
+  margin: 4rem 0 6rem 0;
+
+  &.gap-12 {
+    gap: 12rem;
+  }
+}
