@@ -1,8 +1,10 @@
 const $ = document.querySelector.bind(document);
 
 //* HEADER
-const darkThemeToggle = document.querySelector('[data-dark-theme-toggle]');
-const darkThemeLabel = document.querySelector('[data-dark-theme-label]');
+const appInformationToggle = $('[data-app-information-toggle]');
+const appLanguageToggle = $('[data-app-language-toggle]');
+const darkThemeToggle = $('[data-app-dark-theme-toggle]');
+const darkThemeLabel = $('[data-app-dark-theme-label]');
 
 //* HOME
 const appHomeElement = $('[data-app-home]');
@@ -10,9 +12,12 @@ const formElement = $('[data-form-group]');
 const inputElement = $('[data-form-control]');
 const errorMessageElement = $('[data-form-message]');
 
+//* SETTINGS
+const appSettingElement = $('[data-app-settings]');
+
 //* INFO
-const appInfoElement = $('[data-app-info]');
-const infoListElement = $('[data-info-list]');
+const appRuleElement = $('[data-app-rules]');
+const ruleListElement = $('[data-rules-list]');
 
 //* QUESTIONS
 const questionWrapperElement = $('[data-question-wrapper]');
@@ -33,10 +38,13 @@ const leaderboardDescriptionElement = $('[data-leaderboard-description]');
 
 //* CONTROLS
 const appControlsElement = $('[data-app-controls]');
+const settingBtnElement = $('[data-btn-settings]');
+const submitBtnElement = $('[data-btn-submit]');
 const continueBtnElement = $('[data-btn-continue]');
 const startBtnElement = $('[data-btn-start]');
 const nextBtnElement = $('[data-btn-next]');
 const restartBtnElement = $('[data-btn-restart]');
+const saveBtnElement = $('[data-btn-save');
 const highScoresBtnElement = $('[data-btn-high-scores]');
 const exitBtnElement = $('[data-btn-exit]');
 
@@ -50,12 +58,16 @@ let shuffledQuestions;
 let currentQuestionIndex;
 let correctAnswer;
 let wrongAnswer;
+let percentAccuracy;
 let score;
+let count;
 
-let timer = 90;
+let timer = 5;
 let min;
 let sec;
 let timerId;
 
 let minPlayer;
 let secPlayer;
+let timeTotalPlayer;
+let isApproved;

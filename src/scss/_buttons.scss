@@ -31,10 +31,13 @@
   color: var(--gray0);
 }
 
+.btn-settings,
+.btn-submit,
 .btn-continue,
 .btn-start,
 .btn-next,
 .btn-restart,
+.btn-save,
 .btn-high-scores,
 .btn-exit,
 .btn-close {
@@ -43,6 +46,7 @@
   justify-content: center;
   gap: 1rem;
 
+  width: 19rem;
   height: 6rem;
 
   font-family: 'cubano', sans-serif;
@@ -56,19 +60,25 @@
   }
 }
 
+.btn-settings:hover,
+.btn-submit:hover,
 .btn-continue:hover,
 .btn-start:hover,
 .btn-next:hover,
 .btn-restart:hover,
+.btn-save:hover,
 .btn-high-scores:hover,
 .btn-exit:hover {
-  transform: scale(1.2);
+  transform: scale(1.15);
   transition: all 0.4s ease;
 }
 
-.btn-continue,
+.btn-settings {
+  background-color: var(--pink);
+}
+
+.btn-submit,
 .btn-start {
-  width: 18rem;
   margin-left: 8rem;
 }
 
@@ -82,22 +92,25 @@
 }
 
 .btn-exit {
-  width: 18rem;
   padding: 1rem 2rem;
-  border: 4px solid var(--state-wrong);
+  border: 4px solid var(--red-dark);
 
   background-color: var(--background);
-  color: var(--state-wrong);
+  color: var(--red-dark);
 
   &:hover {
-    background-color: var(--state-wrong);
+    background-color: var(--red-dark);
     color: var(--gray0);
   }
 }
 
-.btn-high-scores {
-  width: 18rem;
+.btn-submit,
+.btn-save {
   background-color: var(--state-correct);
+}
+
+.btn-high-scores {
+  background-color: var(--orange);
 }
 
 .btn-close {

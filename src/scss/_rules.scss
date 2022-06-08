@@ -1,11 +1,12 @@
-.app__info {
+.app__rules {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 
-  margin-top: 4rem;
+  margin: 4rem 0 6rem 0;
+  padding: 0 2rem;
 
   color: var(--text-color);
 
@@ -14,17 +15,17 @@
   }
 }
 
-.info__title,
+.rules__title,
 .form__label {
   font-family: 'fira-code-bold', serif;
   font-size: var(--font-size-med);
 }
 
-.info__title {
+.rules__title {
   margin-bottom: 1rem;
 }
 
-.info__list {
+.rules__list {
   text-align: justify;
   letter-spacing: normal;
 
@@ -46,5 +47,10 @@
 
   p:nth-child(5) span {
     color: var(--state-wrong);
+  }
+
+  p:nth-child(7) span {
+    text-transform: uppercase;
+    color: var(--orange);
   }
 }

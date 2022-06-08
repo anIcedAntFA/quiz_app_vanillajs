@@ -6,9 +6,16 @@ import {
   getLocalStoragePlayers,
   updateLocalStoragePlayers,
 } from './local_storage.js';
-
-const addHide = (element) => element.classList.add('hide');
-const removeHide = (element) => element.classList.remove('hide');
+import {
+  playerName,
+  updateState,
+  addHide,
+  removeHide,
+  setStatusClass,
+  clearStatusClass,
+  resetState,
+  sortByName,
+} from './global.js';
 
 function setQuestionState() {
   questionStateElement.innerHTML = `
@@ -16,25 +23,30 @@ function setQuestionState() {
   `;
 }
 
+function showAppInformation() {}
+
+function handleAppLanguage() {
+  alert('This feature is under construction');
+}
+
 function renderInfoList() {
-  return (infoListElement.innerHTML = `
+  return (ruleListElement.innerHTML = `
     <p>1. You will have only <span>${TIME_MINUTE} minute ${TIME_SECOND} seconds</span> to complete this quiz.</p>
     <p>2. Once you select your answer, it cannot be undone.</p>
     <p>3. You can go to the next question only after answering the previous question first.</p>
     <p>4. You will get <span>${POINT_PLUS} points</span> on the basis of your correct answers.</p>
     <p>5. You will lose <span>${POINT_MINUS} points</span> on the basis of your wrong answers.</p>
     <p>6. You cannot exit from the Quiz while you are playing.</p>
+    <p>7. If you do not finish <span>all</span> questions, you will not get a position on the Leaderboard.</p>
   `);
 }
 
-function updateState() {
-  shuffledQuestions = questionsList.sort(() => Math.random() - 0.5);
-  currentQuestionIndex = 0;
-  correctAnswer = 0;
-  wrongAnswer = 0;
-  score = 0;
-  minPlayer = 0;
-  secPlayer = 0;
+function renderGameSettings() {
+  [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
+    addHide(element),
+  );
+  [exitBtnElement, submitBtnElement, appSettingElement].forEach((element) => removeHide(element));
+  appControlsElement.style.margin = '0';
 }
 
 function handleContinueClick() {
@@ -42,15 +54,20 @@ function handleContinueClick() {
   localStorage.setItem('newest-player-name', playerName);
   setLocalStoragePlayers(playerName);
 
-  [appHomeElement, highScoresBtnElement, continueBtnElement].forEach((element) => addHide(element));
-  [appInfoElement, startBtnElement, exitBtnElement].forEach((element) => removeHide(element));
+  [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
+    addHide(element),
+  );
+  [appRuleElement, startBtnElement, exitBtnElement].forEach((element) => removeHide(element));
+  renderInfoList();
+
   appControlsElement.style.flexDirection = 'row';
 }
 
 function startGame() {
-  updateState();
-  [exitBtnElement, startBtnElement, appInfoElement].forEach((element) => addHide(element));
+  [exitBtnElement, startBtnElement, appRuleElement].forEach((element) => addHide(element));
   removeHide(questionWrapperElement);
+
+  updateState();
   setNextQuestion();
   startCountdown();
 }
@@ -60,121 +77,6 @@ function setNextQuestion() {
   resetState();
   setQuestionState();
   renderQuestion(questionObject);
-}
-
-function restartGame() {
-  appControlsElement.classList.remove('gap-12');
-  updateState();
-  [
-    appResultElement,
-    appLeaderboardElement,
-    exitBtnElement,
-    restartBtnElement,
-    highScoresBtnElement,
-  ].forEach((element) => addHide(element));
-  removeHide(questionWrapperElement);
-  setNextQuestion();
-  timer = 90;
-  startCountdown();
-}
-
-function renderLeaderboard() {
-  [
-    appHomeElement,
-    appResultElement,
-    continueBtnElement,
-    restartBtnElement,
-    highScoresBtnElement,
-    exitBtnElement,
-  ].forEach((element) => addHide(element));
-  [appLeaderboardElement, exitBtnElement, restartBtnElement].forEach((element) =>
-    removeHide(element),
-  );
-  appControlsElement.classList.add('gap-12');
-  appControlsElement.style.flexDirection = 'row';
-
-  const players = getLocalStoragePlayers();
-  players.sort((number1, number2) => number2.player_score - number1.player_score);
-  console.log(players);
-
-  const b = players.map((player) => {
-    return player.player_score;
-  });
-  console.log(b);
-
-  const findDuplicateNumber = (array) =>
-    array.filter((item, index) => array.indexOf(item) !== index);
-  console.log(findDuplicateNumber(b));
-
-  const a = players.map((player) => {
-    return player.player_time_min * 60 + player.player_time_sec;
-  });
-  console.log(a);
-  console.log(a.sort());
-
-  const string = players.map((player, index) => {
-    let count = 1;
-
-    return `
-      <tr>
-        <td>${count + index}</td>
-        <td>${player.player_name}</td>
-        <td>${player.player_score}</td>
-        <td>${player.player_time_min}:${player.player_time_sec}</td>
-      </tr>
-    `;
-  });
-
-  leaderboardTableElement.innerHTML = `
-    <table>
-      <thead>
-        <tr>
-          <th>Rank</th>
-          <th>Nickname</th>
-          <th>Score</th>
-          <th>Time</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${string.join('')}
-      </tbody>
-    </table>
-  `;
-}
-
-let checkLocalStoragePlayers = getLocalStoragePlayers();
-
-if (checkLocalStoragePlayers.length === 0) {
-  console.log('No players');
-} else if (checkLocalStoragePlayers === 1) {
-  console.log('has only 1 player');
-} else {
-  console.log('continue');
-}
-
-function exitGame() {
-  appControlsElement.classList.remove('gap-12');
-  appControlsElement.style.flexDirection = 'row-reverse';
-  [
-    appResultElement,
-    appInfoElement,
-    appLeaderboardElement,
-    startBtnElement,
-    exitBtnElement,
-    restartBtnElement,
-  ].forEach((element) => addHide(element));
-  [appHomeElement, highScoresBtnElement, continueBtnElement].forEach((element) =>
-    removeHide(element),
-  );
-}
-
-function resetState() {
-  clearStatusClass(document.body);
-  addHide(nextBtnElement);
-
-  while (questionAnswerElement.firstChild) {
-    questionAnswerElement.removeChild(questionAnswerElement.firstChild);
-  }
 }
 
 function renderQuestion(questionObject) {
@@ -213,6 +115,7 @@ function handleCorrectAnswer(correct) {
     wrongAnswer++;
     score -= POINT_MINUS;
   }
+
   setStatusClass(document.body, correct);
   Array.from(questionAnswerElement.children).forEach((answer) => {
     setStatusClass(answer, answer.dataset.correct);
@@ -226,66 +129,239 @@ function handleQuestionsList() {
     removeHide(nextBtnElement);
     appControlsElement.style.margin = '0';
   } else {
+    percentAccuracy =
+      Math.round(((correctAnswer / shuffledQuestions.length) * 100 + Number.EPSILON) * 100) / 100;
     saveTimePlayer();
-    console.log(minPlayer, secPlayer);
     updateTimer();
     renderResult();
   }
 }
 
+function restartGame() {
+  [
+    appResultElement,
+    appLeaderboardElement,
+    exitBtnElement,
+    restartBtnElement,
+    saveBtnElement,
+    highScoresBtnElement,
+  ].forEach((element) => addHide(element));
+  removeHide(questionWrapperElement);
+
+  updateState();
+  setNextQuestion();
+  timer = 5;
+  startCountdown();
+}
+
+function saveGame() {
+  timeTotalPlayer = minPlayer * 60 + secPlayer;
+
+  if (correctAnswer + wrongAnswer === shuffledQuestions.length) {
+    updateLocalStoragePlayers(
+      playerName,
+      score,
+      minPlayer,
+      secPlayer,
+      timeTotalPlayer,
+      percentAccuracy,
+      (isApproved = true),
+    );
+  } else {
+    updateLocalStoragePlayers(
+      playerName,
+      score,
+      minPlayer,
+      secPlayer,
+      timeTotalPlayer,
+      percentAccuracy,
+      isApproved,
+    );
+  }
+}
+
 function renderResult(correct) {
-  clearStatusClass(document.body, correct);
+  const playerName = localStorage.getItem('newest-player-name');
+
   [questionWrapperElement, nextBtnElement].forEach((element) => addHide(element));
   [appResultElement, exitBtnElement, restartBtnElement, highScoresBtnElement].forEach((element) =>
     removeHide(element),
   );
-  appControlsElement.style.margin = '4rem 0 6rem 0';
+  appControlsElement.style.margin = '3rem 0 4rem 0';
 
-  const playerName = localStorage.getItem('newest-player-name');
-  updateLocalStoragePlayers(playerName, score, minPlayer, secPlayer);
+  clearStatusClass(document.body, correct);
 
-  resultDescriptionElement.innerHTML = `
-    Congratulations ✨<span>${playerName}</span>✨,
-    <br />
-    you have completed the Quiz 🚀💖
-  `;
-  resultTableElement.innerHTML = `
+  if (correctAnswer + wrongAnswer < shuffledQuestions.length) {
+    appResultElement.style.padding = '0 4rem';
+
+    resultDescriptionElement.innerHTML = `
+      Oh no!💔💔 You could not finish the Quiz😖, <span>${playerName}</span>
+      <br />
+      Press <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--state-neutral)">restart button</span> to play again and try to complete <span style="text-transform: uppercase">all questions</span>. 
+      Then you are able to get a position on the ⭐Leaderboard⭐.
+    `;
+
+    resultTableElement.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Correct Answers</th>
+            <th>Wrong Answers</th>
+            <th>Total Scores</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${correctAnswer}</td>
+            <td>${wrongAnswer}</td>
+            <td>${score}</td>
+            <td>${minPlayer}:${secPlayer}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+
+  if (correctAnswer + wrongAnswer === shuffledQuestions.length) {
+    removeHide(saveBtnElement);
+    appResultElement.style.padding = '0 2rem';
+
+    resultDescriptionElement.innerHTML = `
+      Congratulations ✨<span>${playerName}</span>✨‼️
+      <br />
+      You have completed the Quiz 🚀💖
+      <br />
+      Press <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--state-correct)">save button</span>   
+      to storage your result, then press <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--orange)">scores button</span> to see your ranking on the ⭐Leaderboard⭐.
+    `;
+    resultTableElement.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Correct Answers</th>
+            <th>Wrong Answers</th>
+            <th>Total Scores</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${correctAnswer}</td>
+            <td>${wrongAnswer}</td>
+            <td>${score}</td>
+            <td>${minPlayer}:${secPlayer}</td>
+          </tr>
+        </tbody>
+      </table>
+    `;
+  }
+}
+
+function renderLeaderboard() {
+  [
+    appHomeElement,
+    appResultElement,
+    settingBtnElement,
+    continueBtnElement,
+    restartBtnElement,
+    saveBtnElement,
+    highScoresBtnElement,
+    exitBtnElement,
+  ].forEach((element) => addHide(element));
+  [appLeaderboardElement, exitBtnElement, restartBtnElement].forEach((element) =>
+    removeHide(element),
+  );
+
+  appControlsElement.style.flexDirection = 'row';
+
+  const players = getLocalStoragePlayers().filter((player) => player.is_approved === true);
+  console.log(players);
+  players.sort((element1, element2) => {
+    return (
+      //* case 1: different scores => sort by scores
+      element2.player_score - element1.player_score ||
+      //* case 2: equal scores => sort by scores & time
+      (element2.player_score === element1.player_score &&
+        element1.player_time_total - element2.player_time_total) ||
+      //* case 3: equal scores & time => sort by scores, time & percent accuracy
+      (element2.player_score === element1.player_score &&
+        element1.player_time_total === element2.player_time_total &&
+        element2.player_percent_accuracy - element1.player_percent_accuracy) ||
+      //* case 4: equal scores, time & percent accuracy => sort by scores, time, percent accuracy & name
+      (element2.player_score === element1.player_score &&
+        element1.player_time_total === element2.player_time_total &&
+        element2.player_percent_accuracy === element1.player_percent_accuracy &&
+        sortByName(element1.player_name, element2.player_name))
+    );
+  });
+
+  const findDuplicateNumber = (array) =>
+    array.filter((item, index) => array.indexOf(item) !== index);
+
+  count = 0;
+  const string = players.map((player, index) => {
+    count++;
+    return `
+      <tr>
+        <td>${count}</td>
+        <td>${player.player_name}</td>
+        <td>${player.player_score}</td>
+        <td>${player.player_time_min}:${player.player_time_sec}</td>
+      </tr>
+    `;
+  });
+
+  leaderboardTableElement.innerHTML = `
     <table>
       <thead>
         <tr>
-          <th>Correct Answers</th>
-          <th>Wrong Answers</th>
-          <th>Total Scores</th>
+          <th>Rank</th>
+          <th>Nickname</th>
+          <th>Score</th>
           <th>Time</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>${correctAnswer}</td>
-          <td>${wrongAnswer}</td>
-          <td>${score}</td>
-          <td>${minPlayer}:${secPlayer}</td>
-        </tr>
+        ${string.join('')}
       </tbody>
     </table>
   `;
+
+  leaderboardDescriptionElement.innerHTML = `
+    Well done guys 😍‼️ Especially 🔥<span>${players[0].player_name}</span>🔥,
+    <br />
+    you have reached a <span>top 1</span> ranking 🚀🚀🚀.
+  `;
 }
 
-function setStatusClass(element, correct) {
-  clearStatusClass(element);
-  if (correct) return element.classList.add('correct');
-  return element.classList.add('wrong');
-}
-
-function clearStatusClass(element) {
-  element.classList.remove('correct');
-  element.classList.remove('wrong');
+function exitGame() {
+  appControlsElement.classList.remove('gap-12');
+  appControlsElement.style.flexDirection = 'row-reverse';
+  [
+    appSettingElement,
+    appRuleElement,
+    appResultElement,
+    appLeaderboardElement,
+    submitBtnElement,
+    startBtnElement,
+    exitBtnElement,
+    restartBtnElement,
+    saveBtnElement,
+  ].forEach((element) => addHide(element));
+  [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
+    removeHide(element),
+  );
 }
 
 function handleEvents() {
+  appInformationToggle.addEventListener('click', showAppInformation);
+  appLanguageToggle.addEventListener('click', handleAppLanguage);
+
   inputElement.addEventListener('focusout', validateInput);
   inputElement.addEventListener('input', setValid);
 
+  settingBtnElement.addEventListener('click', renderGameSettings);
   continueBtnElement.addEventListener('click', () => {
     if (validateInput()) handleContinueClick();
   });
@@ -295,10 +371,9 @@ function handleEvents() {
     setNextQuestion();
   });
   restartBtnElement.addEventListener('click', restartGame);
-  highScoresBtnElement.addEventListener('click', () => {
-    renderLeaderboard();
-  });
+  saveBtnElement.addEventListener('click', saveGame);
+  highScoresBtnElement.addEventListener('click', renderLeaderboard);
   exitBtnElement.addEventListener('click', exitGame);
 }
 
-export { renderResult, renderInfoList, handleEvents };
+export { renderResult, handleEvents };

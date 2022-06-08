@@ -1,0 +1,189 @@
+.app__settings {
+  margin: 4rem 0 2rem 0;
+  padding: 0 4rem;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  width: 100%;
+}
+
+.form__heading {
+  min-width: 40rem;
+  width: 80%;
+  margin-bottom: 2rem;
+  padding: 1rem 1.2rem;
+  border: 3px dashed var(--pink);
+  border-radius: var(--border-radius-primary);
+
+  text-align: center;
+  font-family: 'fira-code-bold', sans-serif;
+  font-size: var(--font-size-lg);
+  color: var(--pink);
+}
+
+.form__group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  position: relative;
+  width: 100%;
+
+  > label span {
+    color: var(--red);
+  }
+
+  &:last-child {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.form__label,
+.form__message {
+  text-align: left;
+}
+
+.form__label {
+  letter-spacing: 0.16rem;
+  padding-bottom: 1rem;
+  line-height: 2rem;
+  font-size: var(--font-size-med);
+}
+
+.form__control {
+  height: 4.8rem;
+  padding: 0.8rem 1.2rem;
+  border: var(--form-border);
+  border-bottom-width: 0.2rem;
+  border-radius: var(--form-border-radius);
+  outline: none;
+  font-size: var(--font-size-med);
+
+  &:hover {
+    border-color: var(--blue);
+  }
+
+  .form__group.invalid & {
+    border-color: var(--red);
+    background: var(--red-blur);
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.form__group.invalid .form__control {
+  border-color: var(--red);
+}
+
+.form__group.invalid .form__message {
+  color: var(--red);
+}
+
+.form__message {
+  font-size: var(--font-s);
+  line-height: 1.6rem;
+  padding: 0.4rem 0 0;
+
+  .form__group.invalid & {
+    color: var(--red);
+  }
+}
+
+.genre__category {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.genre__wrapper {
+  display: block;
+  position: relative;
+  width: calc(100% / 4 - 1.6rem);
+  padding-left: 3.2rem;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: var(--font-med);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  label {
+    cursor: pointer;
+  }
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  /* Create a custom checkbox */
+  .check-mark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: #eee;
+    border: 0.16rem solid var(--blue);
+  }
+
+  /* On mouse-over, add a grey background color */
+  &:hover input ~ .check-mark {
+    background-color: var(--gray1);
+  }
+
+  /* When the checkbox is checked, add a blue background */
+  input:checked ~ .check-mark {
+    background-color: #2196f3;
+    border-color: var(--gray1);
+  }
+
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .check-mark:after {
+    content: '';
+    position: absolute;
+    display: none;
+  }
+
+  /* Show the checkmark when checked */
+  input:checked ~ .check-mark:after {
+    display: block;
+  }
+
+  /* Style the checkmark/indicator */
+  .check-mark:after {
+    left: 6px;
+    top: 3px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+/* The container must be positioned relative: */
+.custom-select {
+  position: relative;
+  font-family: var(--font-body);
+  letter-spacing: 1px;
+}

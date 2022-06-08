@@ -39,7 +39,7 @@ body.wrong {
 
 hr {
   width: 100%;
-  border: var(--h-border);
+  border: 1.6px dashed var(--blue);
 }
 
 a,
@@ -91,7 +91,7 @@ td {
 }
 
 .app__wrapper {
-  max-width: 72rem;
+  max-width: 76rem;
   padding: 2.4rem 3.2rem;
   border: 4px solid var(--orange);
   border-radius: var(--border-radius-primary);

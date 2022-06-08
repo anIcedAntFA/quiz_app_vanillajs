@@ -18,7 +18,7 @@ function startCountdown() {
 
 function updateTimer() {
   clearInterval(timerId);
-  timer = 90;
+  timer = 5;
   min = Math.floor(timer / 60);
   sec = timer % 60;
   appTimerElement.innerHTML = `Time: ${min}:${sec}`;
@@ -27,6 +27,14 @@ function updateTimer() {
 function saveTimePlayer() {
   minPlayer = TIME_MINUTE - min;
   secPlayer = TIME_SECOND - sec;
+
+  if (secPlayer > 0) {
+    minPlayer = TIME_MINUTE - min;
+    secPlayer = TIME_SECOND - sec;
+  } else {
+    minPlayer = minPlayer - 1;
+    secPlayer = secPlayer + 60;
+  }
 }
 
 export { startCountdown, updateTimer, saveTimePlayer };

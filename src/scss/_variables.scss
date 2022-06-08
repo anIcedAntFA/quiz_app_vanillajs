@@ -39,6 +39,7 @@ $colors: (
     --#{$name}-light: #{lighten($color, 8%)};
   }
 
+  --red-blur: hsl(348, 100%, 98%);
   --yellow-js: hsl(52, 84%, 63%);
   --yellow-vanilla: hsl(55, 100%, 86%);
   --white: hsl(0, 0%, 100%);
@@ -62,6 +63,10 @@ $colors: (
   --font-size-xlg: 4.8rem;
 
   --border-radius-primary: 1.2rem;
+
+  --form-border: 1px solid var(--gray2);
+  --form-border-radius: 6px;
+  --form-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
 
   @include default-theme;
 }

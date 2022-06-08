@@ -6,25 +6,34 @@
   justify-content: center;
 
   margin: 6rem 0;
+  padding: 0 4rem;
+
+  text-align: center;
 
   &.hide {
     display: none;
   }
+
+  & p span {
+    font-family: 'Cubano', sans-serif;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
 }
 
-.home__title {
+.home__title--home {
   font-family: 'fira-code-bold', serif;
   font-size: var(--font-size-med);
 }
 
-.form__group {
+.form__group--home {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 
-  margin-top: 1rem;
+  margin: 1rem 0;
 
   &.invalid .form__message {
     color: var(--state-wrong);
@@ -33,11 +42,11 @@
   label span {
     font-family: 'burbank-big-condensed', sans-serif;
     font-size: var(--font-size-lg);
-    color: var(--pink);
+    color: var(--red-dark);
   }
 }
 
-.form__control {
+.form__control--home {
   height: 4rem;
   width: 100%;
   max-width: 48rem;

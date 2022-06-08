@@ -9,6 +9,8 @@
   &.hide {
     display: none;
   }
+
+  margin-top: 4rem;
 }
 
 .result__title {
@@ -38,7 +40,7 @@
     font-family: 'burbank-big-condensed', sans-serif;
     font-size: var(--font-size-med);
     letter-spacing: 2.4px;
-    color: var(--pink);
+    color: var(--red-dark);
   }
 }
 
