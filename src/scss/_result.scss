@@ -53,6 +53,12 @@
 
   color: var(--text-color);
 
+  table,
+  th,
+  td {
+    border: 2px solid var(--green);
+  }
+
   table {
     width: 64%;
   }

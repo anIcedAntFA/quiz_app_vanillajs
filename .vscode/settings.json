@@ -9,5 +9,6 @@
       "savePathSegmentKeys": null,
       "savePathReplaceSegmentsWith": null
     }
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

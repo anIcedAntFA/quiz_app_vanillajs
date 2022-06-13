@@ -5,10 +5,10 @@ const questionsList = [
     type: 'Multiple',
     difficulty: 'Easy',
     answers: [
-      { text: 'Central Processing Unit', correct: true },
-      { text: 'Center Processing Unit', correct: false },
-      { text: 'Central Proposal Unit', correct: false },
-      { text: 'Central Processed Unit ', correct: false },
+      { text: 'A. Central Processing Unit', correct: true },
+      { text: 'B. Center Processing Unit', correct: false },
+      { text: 'C. Central Proposal Unit', correct: false },
+      { text: 'D. Central Processed Unit ', correct: false },
     ],
   },
   {
@@ -17,46 +17,47 @@ const questionsList = [
     type: 'True / False',
     difficulty: 'Easy',
     answers: [
-      { text: 'True', correct: false },
-      { text: 'False', correct: true },
+      { text: 'A. True', correct: false },
+      { text: 'B. False', correct: true },
     ],
   },
-  // {
-  //   question: 'Is web development fun?',
-  //   category: 'General',
-  //   type: 'Multiple',
-  //   difficulty: 'Easy',
-  //   answers: [
-  //     { text: 'Um no', correct: false },
-  //     { text: 'YES!!!', correct: true },
-  //     { text: 'IDK', correct: false },
-  //   ],
-  // },
-  // {
-  //   question: 'How many legs has a snake got?',
-  //   category: 'Animals',
-  //   type: 'Multiple',
-  //   difficulty: 'Easy',
-  //   answers: [
-  //     { text: '2', correct: false },
-  //     { text: '4', correct: false },
-  //     { text: 'Footless', correct: true },
-  //     { text: 'Infinity', correct: false },
-  //   ],
-  // },
-  // {
-  //   question: 'Where can you go when you are feeling sick/had an accident?',
-  //   category: 'General',
-  //   type: 'Multiple',
-  //   difficulty: 'Easy',
-  //   answers: [
-  //     { text: 'The Pentagon', correct: false },
-  //     { text: 'Swimming pool', correct: false },
-  //     { text: 'Restaurant', correct: false },
-  //     { text: 'Hospital', correct: true },
-  //     { text: "Girlfriend's house", correct: false },
-  //   ],
-  // },
+  {
+    question: 'Is web development fun?',
+    category: 'General',
+    type: 'Multiple',
+    difficulty: 'Easy',
+    answers: [
+      { text: 'A. Um no', correct: false },
+      { text: 'B. YES!!!', correct: true },
+      { text: 'C. IDK', correct: false },
+    ],
+  },
+  {
+    question: 'How many legs has a snake got?',
+    category: 'Animals',
+    type: 'Multiple',
+    difficulty: 'Easy',
+    answers: [
+      { text: 'A. 2', correct: false },
+      { text: 'B. 4', correct: false },
+      { text: 'C. Footless', correct: true },
+      { text: 'D. Infinity', correct: false },
+    ],
+  },
+  {
+    question: 'Where could you go when you are feeling sick/had an accident?',
+    category: 'General',
+    type: 'Multiple',
+    difficulty: 'Easy',
+    answers: [
+      { text: "A. Girlfriend's house", correct: false },
+      { text: 'B. Swimming pool', correct: false },
+      { text: 'C. Restaurant', correct: false },
+      { text: 'E. Hospital', correct: true },
+      { text: 'F. All are correct', correct: false },
+      { text: 'G. All are wrong', correct: false },
+    ],
+  },
 ];
 
 export default questionsList;

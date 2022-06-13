@@ -1,6 +1,5 @@
 import questionsList from './data.js';
-
-const playerName = localStorage.getItem('newest-player-name');
+import { setLocalStoragePlayers } from './local_storage.js';
 
 function updateState() {
   shuffledQuestions = questionsList.sort(() => Math.random() - 0.5);
@@ -13,6 +12,12 @@ function updateState() {
   secPlayer = 0;
   timeTotalPlayer = 0;
   isApproved = false;
+  isSavedPlayer = false;
+  playerLeft = false;
+
+  const playerName = inputNicknameElement.value;
+  localStorage.setItem('newest-player-name', playerName);
+  setLocalStoragePlayers(playerName);
 }
 
 const addHide = (element) => element.classList.add('hide');
@@ -47,12 +52,10 @@ function sortByName(element1, element2) {
   if (nameA > nameB) {
     return 1;
   }
-  // names must be equal
   return 0;
 }
 
 export {
-  playerName,
   updateState,
   addHide,
   removeHide,

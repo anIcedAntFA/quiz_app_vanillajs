@@ -13,12 +13,6 @@
   &.hide {
     display: none;
   }
-
-  & p span {
-    font-family: 'Cubano', sans-serif;
-    text-transform: uppercase;
-    color: var(--pink);
-  }
 }
 
 .home__title--home {
@@ -30,7 +24,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 1rem;
 
   margin: 1rem 0;
@@ -44,6 +37,11 @@
     font-size: var(--font-size-lg);
     color: var(--red-dark);
   }
+}
+
+.form__label--home {
+  font-family: 'fira-code-bold', serif;
+  font-size: var(--font-size-med);
 }
 
 .form__control--home {
@@ -60,7 +58,30 @@
   color: var(--text-color);
 }
 
-.form__message {
+.form__message--home {
   max-width: 56rem;
   text-align: center;
+
+  color: var(--state-wrong);
+}
+
+.home__description {
+  span {
+    font-family: 'Cubano', sans-serif;
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  span:nth-child(1) {
+    color: var(--blue);
+  }
+
+  span:nth-child(3) {
+    color: var(--pink);
+  }
+
+  span:nth-child(5) {
+    color: var(--orange);
+  }
 }

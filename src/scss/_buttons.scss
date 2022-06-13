@@ -7,13 +7,17 @@
   transition: all 0.4s ease;
 }
 
-.btn-outline {
+.btn-question {
+  min-width: 32rem;
   border: 2px solid var(--state-neutral);
+
+  font-family: 'fira-code-medium-bold', sans-serif;
+  font-size: 125%;
   background-color: var(--gray1);
   color: var(--gray6);
 }
 
-.btn-outline:hover {
+.btn-question:hover {
   background-color: var(--state-neutral);
   color: var(--text-color);
   transition: all 0.4s ease;
@@ -39,6 +43,7 @@
 .btn-restart,
 .btn-save,
 .btn-high-scores,
+.btn-back,
 .btn-exit,
 .btn-close {
   display: flex;
@@ -68,6 +73,7 @@
 .btn-restart:hover,
 .btn-save:hover,
 .btn-high-scores:hover,
+.btn-back:hover,
 .btn-exit:hover {
   transform: scale(1.15);
   transition: all 0.4s ease;
@@ -80,6 +86,10 @@
 .btn-submit,
 .btn-start {
   margin-left: 8rem;
+}
+
+.btn-back {
+  margin-right: 8rem;
 }
 
 .btn-next {

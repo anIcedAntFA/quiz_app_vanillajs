@@ -17,7 +17,7 @@
   // min-width: 40rem;
   // width: 80%;
   padding: 1rem 4rem;
-  border: 3px dashed var(--state-correct);
+  border: 3px dashed var(--green);
   border-radius: var(--border-radius-primary);
 
   text-align: center;
@@ -29,6 +29,12 @@
 .leaderboard__table {
   max-height: 21.2rem;
   overflow-y: scroll;
+
+  table,
+  th,
+  td {
+    border: 2px solid var(--green);
+  }
 }
 
 .leaderboard__description {

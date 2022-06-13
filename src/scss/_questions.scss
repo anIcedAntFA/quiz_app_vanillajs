@@ -2,7 +2,7 @@
   display: grid;
   grid-gap: 2rem;
   grid-template-areas:
-    'state timer'
+    'progress timer'
     'title title'
     'answer answer';
   align-items: center;
@@ -13,34 +13,55 @@
   }
 }
 
-.question__state {
-  grid-area: state;
+.question__progress {
+  grid-area: progress;
+
+  text-align: center;
   font-family: 'fira-code-bold', sans-serif;
   font-size: var(--font-size-med);
   color: var(--text-color);
+}
+
+.progress__bar {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 4rem;
+  margin-top: 4px;
+  border: 4px solid var(--blue-dark);
+  border-radius: var(--form-border-radius);
+}
+
+.progress__bar-full {
+  height: 2.8rem;
+  margin: 0 2px;
+
+  background-color: var(--blue);
 }
 
 .app__timer {
   grid-area: timer;
   justify-self: end;
 
-  min-width: 13rem;
+  min-width: 18rem;
   padding: 1rem;
-  border-radius: var(--border-radius-primary);
+  border-radius: 6px;
 
   font-family: 'fira-code-semi-bold', sans-serif;
+  font-size: var(--font-size-med);
   text-align: center;
-  background-color: var(--orange);
+  background-color: var(--pink);
   color: var(--gray0);
-  text-transform: uppercase;
 }
 
 .question__title {
   grid-area: title;
 
+  padding: 0 2.4rem;
+
   text-align: center;
   font-size: 125%;
-  // background-color: var(--green-light);
   color: var(--text-color);
 
   hr:first-child {
@@ -54,7 +75,10 @@
 
 .question__answers {
   grid-area: answer;
-  display: grid;
-  gap: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+
   margin-top: 1rem;
 }

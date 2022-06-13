@@ -37,8 +37,8 @@
         <!--* Home *-->
         <section class="app__home" data-app-home>
           <p class="home__title--home">Welcome to the Quiz! 🐳</p>
-          <form action="">
-            <div class="form__group-home" data-form-group>
+          <form action="" data-form>
+            <div class="form__group--home" data-form-group>
               <label for="nickname" class="form__label--home"
                 >Do you have a 🔥<span>Cool Nickname</span>🔥</label
               >
@@ -46,74 +46,72 @@
                 id="nickname"
                 name="nickname"
                 type="text"
-                placeholder="Let's type your cool nickname, then press 🚀CONTINUE🚀"
+                placeholder="Let's type your cool nickname!"
                 class="form__control--home"
-                data-form-control
+                data-form-control-nickname
               />
-              <span class="form__message" data-form-message></span>
             </div>
           </form>
-          <p>
-            After typing your nickname, press <span>settings button</span> to go to game settings
-            page, then select game options you want to play.
+          <p class="home__description">
+            Press <span>continue button</span> to go forward.
+            <br />
+            Press <span>settings button</span> to go to game settings page.
+            <br />
+            Press <span>scores button</span> to see top players on the ⭐Leaderboard⭐.
           </p>
         </section>
 
         <!--* Settings *-->
         <section class="app__settings hide" data-app-settings>
+          <h3 class="form__heading">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            Game Settings
+            <i class="fa-solid fa-sliders"></i>
+          </h3>
           <form action="" class="form__wrapper">
-            <h3 class="form__heading">
-              <i class="fa-solid fa-screwdriver-wrench"></i>
-              Game Settings
-              <i class="fa-solid fa-sliders"></i>
-            </h3>
-
             <!--* Quantity *-->
-            <div class="form__group">
+            <div class="form__group" data-form-group-questions>
               <label for="quantity" class="form__label">Amount of Questions</label>
               <input
                 id="quantity"
                 name="quantity"
                 type="text"
-                placeholder=""
+                placeholder="Min is 5 and max is 20."
                 class="form__control"
-                data-form-control
+                data-form-control-questions
               />
-              <span class="form__message" data-form-message></span>
             </div>
 
             <!--* Difficulty *-->
             <div class="form__group" form-group>
-              <label for="magazine" class="form__label">Difficulty</label>
+              <label for="difficulty" class="form__label">Difficulty</label>
               <select
-                name="magazine"
-                id="magazine"
+                name="difficulty"
+                id="difficulty"
                 class="form__control custom-select text-center"
-                form-magazine
+                data-form-control-difficulty
               >
-                <option value="">--Choose Difficulty--</option>
-                <option value="wsj">--Easy--</option>
-                <option value="wsj">--Medium--</option>
-                <option value="wsj">--Hard--</option>
+                <option value="5">--- Difficulty ---</option>
+                <option value="1">------ Easy ------</option>
+                <option value="2" selected="selected">----- Medium -----</option>
+                <option value="3">------ Hard ------</option>
               </select>
-              <span class="form__message" form-message></span>
             </div>
 
             <!--* Type *-->
             <div class="form__group" form-group>
-              <label for="magazine" class="form__label">Type</label>
+              <label for="type" class="form__label">Type</label>
               <select
-                name="magazine"
-                id="magazine"
+                name="type"
+                id="type"
                 class="form__control custom-select text-center"
-                form-magazine
+                data-form-control-type
               >
-                <option value="">--Choose Type--</option>
-                <option value="wsj">--Multiple Choice--</option>
-                <option value="wsj">--True / False--</option>
-                <option value="wsj">--All--</option>
+                <option value="">------ Type ------</option>
+                <option value="wsj">- Multiple Choice -</option>
+                <option value="wsj">-- True / False --</option>
+                <option value="wsj">----- Random -----</option>
               </select>
-              <span class="form__message" form-message></span>
             </div>
 
             <!--* Category *-->
@@ -161,7 +159,6 @@
                   <label for="general">General</label>
                 </label>
               </div>
-              <span class="form__message" form-message></span>
             </div>
           </form>
         </section>
@@ -172,14 +169,45 @@
           <hr />
           <div class="rules__list" data-rules-list></div>
           <hr />
+          <div class="form__group form__group--rules gender__details" form-group>
+            <label for="gender__details" class="form__label form__label--rules"
+              >Do you agree or disagree with the Rule above?</label
+            >
+            <input type="radio" name="gender" value="male" id="dot-1" />
+            <input type="radio" name="gender" value="female" id="dot-2" />
+            <div class="gender__category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender__male">Disagree</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender__female">Agree</span>
+              </label>
+            </div>
+          </div>
         </section>
 
         <!--* Questions *-->
         <section class="question__wrapper hide" data-question-wrapper>
-          <p class="question__state" data-question-state></p>
-          <time class="app__timer" data-app-timer>Time: 1:30</time>
-          <p class="question__title" data-question-title></p>
-          <div class="question__answers" data-question-answers></div>
+          <div class="question__progress" data-question-progress></div>
+          <time class="app__timer" data-app-timer>Time left: 1:30</time>
+          <p class="question__title" data-question-title>An elephant is smaller than a hippo?</p>
+          <div class="question__answers" data-question-answers>
+            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
+              A. Central Processing Unit
+            </button>
+            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
+              A. Central Processing Unit
+            </button>
+            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
+              A. Central Processing Unit
+            </button>
+            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
+              A. Central Processing Unit
+            </button>
+          </div>
+          <div class="question__answers-accuracy">frefregr</div>
         </section>
 
         <!--* Result *-->
@@ -217,6 +245,10 @@
             <i class="fa-solid fa-angle-right"></i>
             Continue
           </button>
+          <button class="btn btn-back hide" data-btn-back>
+            <i class="fa-solid fa-angles-left"></i>
+            Back
+          </button>
           <button class="btn btn-exit hide" data-btn-exit>
             <i class="fa-solid fa-house"></i>
             Exit
@@ -228,10 +260,6 @@
           <button class="btn btn-next hide" data-btn-next>
             <i class="fa-solid fa-angles-right"></i>
             Next
-          </button>
-          <button class="btn btn-restart" data-btn-back>
-            <i class="fa-solid fa-angles-left"></i>
-            Back
           </button>
           <button class="btn btn-restart hide" data-btn-restart>
             <i class="fa-solid fa-retweet"></i>
@@ -267,8 +295,11 @@
           </div>
         </footer>
       </main>
-      <!--* Modal *-->
-      <!-- <div class="modal__overlay">
+      <!--* Toasts *-->
+      <div id="toast" data-toast></div>
+
+      <!--* Modals *-->
+      <div id="modal" class="modal__overlay" data-modal>
         <div class="modal__leaderboard modal-container modal--error">
           <h3 class="modal__header">Error!!!</h3>
           <span class="modal__close-icon">
@@ -282,9 +313,9 @@
             Close
           </button>
         </div>
-      </div> -->
+      </div>
     </div>
-    <script src="./src/js/variables.js" defer></script>
-    <script type="module" src="./src/js/index.js" defer></script>
+    <script src="./src/js/global_variables.js"></script>
+    <script type="module" src="./src/js/index.js"></script>
   </body>
 </html>

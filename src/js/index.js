@@ -1,8 +1,8 @@
-import theme from './theme.js';
-import { handleEvents } from './app.js';
+import handleDarkTheme from './handle_themes.js';
+import handleEvents from './handle_events.js';
 
 function init() {
-  theme();
+  handleDarkTheme();
   handleEvents();
 }
 

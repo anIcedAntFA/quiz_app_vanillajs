@@ -5,13 +5,17 @@
   justify-content: center;
   gap: 1rem;
 
-  margin: 4rem 0 6rem 0;
+  margin-top: 4rem;
   padding: 0 2rem;
 
   color: var(--text-color);
 
   &.hide {
     display: none;
+  }
+
+  hr {
+    border: 1.6px dashed var(--purple);
   }
 }
 
@@ -23,6 +27,16 @@
 
 .rules__title {
   margin-bottom: 1rem;
+  min-width: 40rem;
+  width: 80%;
+  padding: 1rem 1.2rem;
+  border: 3px dashed var(--purple);
+  border-radius: var(--border-radius-primary);
+
+  text-align: center;
+  font-family: 'fira-code-bold', sans-serif;
+  font-size: var(--font-size-lg);
+  color: var(--purple);
 }
 
 .rules__list {
@@ -53,4 +67,58 @@
     text-transform: uppercase;
     color: var(--orange);
   }
+}
+
+/* Gender Details */
+.gender__details {
+  width: 100%;
+}
+
+.form__group--rules {
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.form__label--rules {
+  font-size: var(--font-size-body);
+  transition: color 0.4s ease-out;
+
+  &:hover {
+    color: var(--purple);
+    transition: color 0.2s ease-in;
+  }
+}
+
+.gender__category {
+  margin: 0.8rem 0;
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  justify-content: space-around;
+}
+
+.gender__category label {
+  display: flex;
+  align-items: center;
+}
+
+.gender__category .dot {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 0.16rem solid var(--purple);
+
+  background: var(--gray1);
+  transition: all 0.4s ease;
+}
+
+#dot-1:checked ~ .gender__category label .one,
+#dot-2:checked ~ .gender__category label .two {
+  border-color: var(--gray1);
+  background: var(--purple);
+}
+
+.form__group input[type='radio'] {
+  display: none;
 }

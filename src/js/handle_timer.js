@@ -1,4 +1,4 @@
-import { renderResult } from './app.js';
+import renderResult from './render_result.js';
 
 function startCountdown() {
   timerId = setInterval(() => {
@@ -6,7 +6,7 @@ function startCountdown() {
       timer--;
       min = Math.floor(timer / 60);
       sec = timer % 60;
-      appTimerElement.innerHTML = `Time: ${min}:${sec}`;
+      appTimerElement.innerHTML = `Time left: ${min}:${sec}`;
       console.log(min, sec);
     } else {
       saveTimePlayer();
@@ -18,10 +18,10 @@ function startCountdown() {
 
 function updateTimer() {
   clearInterval(timerId);
-  timer = 5;
+  timer = 90;
   min = Math.floor(timer / 60);
   sec = timer % 60;
-  appTimerElement.innerHTML = `Time: ${min}:${sec}`;
+  appTimerElement.innerHTML = `Time left: ${min}:${sec}`;
 }
 
 function saveTimePlayer() {
