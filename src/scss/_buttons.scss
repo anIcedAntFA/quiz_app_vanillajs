@@ -1,5 +1,5 @@
 .btn {
-  padding: 1.6rem 2rem;
+  padding: 1.2rem 2rem;
   border-radius: var(--border-radius-primary);
 
   letter-spacing: inherit;
@@ -124,7 +124,9 @@
 }
 
 .btn-close {
+  width: 14rem;
   background-color: var(--state-wrong);
+  box-shadow: none;
 
   &:hover {
     transform: scale(1.1);

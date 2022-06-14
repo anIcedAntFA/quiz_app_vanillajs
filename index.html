@@ -19,7 +19,7 @@
       <main class="app__wrapper">
         <!--* Header *-->
         <header class="app__header" data-app-header>
-          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.0</h2>
+          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.2</h2>
           <div class="app__information">
             <i class="fa-solid fa-circle-info" data-app-information-toggle></i>
             <span class="tag tag-blue">Information</span>
@@ -35,7 +35,7 @@
         </header>
 
         <!--* Home *-->
-        <section class="app__home" data-app-home>
+        <section class="app__home " data-app-home>
           <p class="home__title--home">Welcome to the Quiz! 🐳</p>
           <form action="" data-form>
             <div class="form__group--home" data-form-group>
@@ -194,7 +194,7 @@
           <time class="app__timer" data-app-timer>Time left: 1:30</time>
           <p class="question__title" data-question-title>An elephant is smaller than a hippo?</p>
           <div class="question__answers" data-question-answers>
-            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
+            <!-- <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
               A. Central Processing Unit
             </button>
             <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
@@ -205,9 +205,26 @@
             </button>
             <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
               A. Central Processing Unit
-            </button>
+            </button> -->
           </div>
-          <div class="question__answers-accuracy">frefregr</div>
+          <div class="question__answers-progress" data-question-answers-progress>
+            <!-- <div class="answer__progress answer__progress--correct">
+              <p class="answer__progress-text">Correct answers: 4</p>
+              <div class="answer__progress-bar">
+                <div class="answer__progress-bar-inner">
+                 70%
+                </div>
+              </div>
+            </div>
+            <div class="answer__progress answer__progress--wrong">
+              <p class="answer__progress-text">Wrong answers: 2</p>
+              <div class="answer__progress-bar">
+                <div class="answer__progress-bar-inner">
+                  30%
+                </div>
+              </div>
+            </div> -->
+          </div>
         </section>
 
         <!--* Result *-->
@@ -233,7 +250,7 @@
 
         <!--* Controls *-->
         <section class="app__controls" data-app-controls>
-          <button class="btn btn-settings" data-btn-settings>
+          <button class="btn btn-settings " data-btn-settings>
             <i class="fa-solid fa-gears"></i>
             Settings
           </button>
@@ -241,7 +258,7 @@
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="btn btn-continue" data-btn-continue>
+          <button class="btn btn-continue " data-btn-continue>
             <i class="fa-solid fa-angle-right"></i>
             Continue
           </button>
@@ -269,7 +286,7 @@
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="btn btn-high-scores" data-btn-high-scores>
+          <button class="btn btn-high-scores " data-btn-high-scores>
             <i class="fa-solid fa-crown"></i>
             Scores
           </button>
@@ -289,7 +306,10 @@
           <div class="footer__github-link">
             Find an issue with this app?
             <br />
-            <a href="https://github.com/anIcedAntFA/My-Todo-Lists" target="_blank">
+            <a
+              href="https://github.com/anIcedAntFA/quiz_app_version_1.2--vanillaJS"
+              target="_blank"
+            >
               <span>Fix it on Github</span>
             </a>
           </div>
@@ -299,22 +319,27 @@
       <div id="toast" data-toast></div>
 
       <!--* Modals *-->
-      <div id="modal" class="modal__overlay" data-modal>
-        <div class="modal__leaderboard modal-container modal--error">
-          <h3 class="modal__header">Error!!!</h3>
-          <span class="modal__close-icon">
-            <i class="fa-solid fa-rectangle-xmark"></i>
-          </span>
-          <p class="modal__body">
-            Hiện tại chưa có đứa nào trên bảng xếp hạng cả, hãy là người chơi đầu tiên nào man!
-          </p>
-          <button class="modal__close-btn btn btn-close">
-            <i class="fa-solid fa-xmark"></i>
-            Close
-          </button>
-        </div>
+      <div id="modal" data-modal>
+        <!-- <div class="modal__overlay">
+          <div class="modal modal--info">
+            <div class="modal__header">
+              <div class="modal__title-icon">
+                <i class="fa-solid fa-circle-info"></i>
+              </div>
+              <div class="modal__title">Information!!</div>
+              <div class="modal__close-icon">
+                <i class="fa-solid fa-xmark"></i>
+              </div>
+            </div>
+            <div class="modal__message">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>
+            <button class="modal__close-btn btn btn-close">
+              Close
+            </button>
+          </div>
+        </div> -->
       </div>
-    </div>
     <script src="./src/js/global_variables.js"></script>
     <script type="module" src="./src/js/index.js"></script>
   </body>

@@ -4,12 +4,6 @@ import { updateLocalStoragePlayers } from './local_storage.js';
 import { setNextQuestion } from './render_questions_answers.js';
 import renderResult from './render_result.js';
 
-function renderAppInformation() {}
-
-function handleAppLanguage() {
-  alert('This feature is under construction');
-}
-
 function handleContinueButton() {
   [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
     addHide(element),
@@ -117,8 +111,6 @@ function exitGame() {
 }
 
 export {
-  renderAppInformation,
-  handleAppLanguage,
   handleContinueButton,
   handleNextButton,
   handleBackButton,

@@ -25,7 +25,8 @@ const ruleListElement = $('[data-rules-list]');
 
 //* QUESTIONS
 const questionWrapperElement = $('[data-question-wrapper]');
-const questionStateElement = $('[data-question-progress]');
+const questionProgressElement = $('[data-question-progress]');
+const questionAnswerProgressElement = $('[data-question-answers-progress]');
 // const questionProgressTextElement = $('[data-question-progress-text]');
 // const questionProgressBarFullElement = $('[data-question-progress-bar-full]');
 const appTimerElement = $('[data-app-timer]');

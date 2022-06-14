@@ -7,8 +7,6 @@ import {
   setValid,
 } from './validate_form.js';
 import {
-  renderAppInformation,
-  handleAppLanguage,
   handleContinueButton,
   handleNextButton,
   handleBackButton,
@@ -19,10 +17,11 @@ import {
   exitGame,
 } from './app.js';
 import renderLeaderboard from './render_leaderboard.js';
+import { renderAppInformation, handleAppLanguage, renderWarningSettings } from './handle_modals.js';
 
 function handleEvents() {
   appInformationToggle.addEventListener('click', renderAppInformation);
-  appLanguageToggle.addEventListener('click', handleAppLanguage);
+  appLanguageToggle.addEventListener('click', renderWarningSettings);
 
   // inputNicknameElement.addEventListener('focusout', validateNickname);
   // inputQuestionsElement.addEventListener('focusout', validateQuestions);
@@ -42,10 +41,10 @@ function handleEvents() {
   });
   startBtnElement.addEventListener('click', startGame);
   nextBtnElement.addEventListener('click', handleNextButton);
-  restartBtnElement.addEventListener('click', restartGame);
   saveBtnElement.addEventListener('click', saveGamePlayer);
   highScoresBtnElement.addEventListener('click', renderLeaderboard);
   backBtnElement.addEventListener('click', handleBackButton);
+  restartBtnElement.addEventListener('click', restartGame);
   exitBtnElement.addEventListener('click', exitGame);
 }
 

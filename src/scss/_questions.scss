@@ -1,10 +1,11 @@
 .question__wrapper {
   display: grid;
-  grid-gap: 2rem;
+  grid-gap: 3.2rem;
   grid-template-areas:
     'progress timer'
     'title title'
-    'answer answer';
+    'answer answer'
+    'answer-progress answer-progress';
   align-items: center;
   margin-top: 4rem;
 
@@ -17,8 +18,7 @@
   grid-area: progress;
 
   text-align: center;
-  font-family: 'fira-code-bold', sans-serif;
-  font-size: var(--font-size-med);
+  font-family: 'fira-code-semi-bold', sans-serif;
   color: var(--text-color);
 }
 
@@ -58,10 +58,8 @@
 .question__title {
   grid-area: title;
 
-  padding: 0 2.4rem;
-
   text-align: center;
-  font-size: 125%;
+  font-size: var(--font-size-med);
   color: var(--text-color);
 
   hr:first-child {
@@ -81,4 +79,55 @@
   flex-wrap: wrap;
 
   margin-top: 1rem;
+}
+
+.question__answers-progress {
+  grid-area: answer-progress;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  font-family: 'fira-code-semi-bold', sans-serif;
+
+  &.hide {
+    display: none;
+  }
+}
+
+.answer__progress-bar {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  height: 4rem;
+  margin-top: 4px;
+  border-radius: var(--form-border-radius);
+
+  .answer__progress--correct & {
+    border: 4px solid var(--green-dark);
+  }
+
+  .answer__progress--wrong & {
+    border: 4px solid var(--red-dark);
+  }
+}
+
+.answer__progress-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 2.8rem;
+  margin: 0 2px;
+
+  .answer__progress--correct & {
+    width: 70%;
+    background-color: var(--green);
+  }
+
+  .answer__progress--wrong & {
+    width: 30%;
+    background-color: var(--red);
+  }
 }
