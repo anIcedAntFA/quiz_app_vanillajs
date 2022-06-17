@@ -3,6 +3,7 @@ import { removeHide, setStatusClass, resetState } from './common_function.js';
 import { updateTimer, saveTimePlayer } from './handle_timer.js';
 import renderResult from './render_result.js';
 
+//****************************************************************************************************** */
 //* Create question progress bar
 const questionProgressTextElement = document.createElement('p');
 questionProgressTextElement.classList.add('progress__text');
@@ -50,6 +51,10 @@ answerProgressBarWrongElement.appendChild(answerProgressBarInnerWrongElement);
 answerProgressWrongElement.appendChild(answerProgressTextWrongElement);
 answerProgressWrongElement.appendChild(answerProgressBarWrongElement);
 questionAnswerProgressElement.appendChild(answerProgressWrongElement);
+//****************************************************************************************************** */
+
+let url = 'https://api.npoint.io/ae231eaa6937096d0d3e';
+let response = await fetch(url);
 
 function updateQuestionProgress() {
   questionProgressTextElement.innerHTML = `

@@ -1,4 +1,6 @@
-function modal({ title = '', message = '', type = 'info' }) {
+import { showSuccessToastNameAgain, showSuccessToastDefaultSettings } from '../handle_toasts.js';
+
+function modal({ title = '', message = '', type = 'info', keyBtn = false, keyName = '' }) {
   if (modalWrapperElement) {
     const icons = {
       success: 'fa-solid fa-circle-check',
@@ -13,21 +15,45 @@ function modal({ title = '', message = '', type = 'info' }) {
 
     const modalElement = document.createElement('div');
     modalElement.classList.add('modal', `modal--${type}`);
-    modalElement.innerHTML = `
-      <div class="modal__header">
-        <div class="modal__title-icon">
-          <i class="${icon}"></i>
+
+    if (keyBtn === true) {
+      modalElement.innerHTML = `
+        <div class="modal__header">
+          <div class="modal__title-icon">
+            <i class="${icon}"></i>
+          </div>
+          <div class="modal__title">${title}</div>
+          <div class="modal__close-icon" data-modal-close-icon>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
         </div>
-        <div class="modal__title">${title}</div>
-        <div class="modal__close-icon" data-modal-close-icon>
-          <i class="fa-solid fa-xmark"></i>
+        <div class="modal__message">${message}</div>
+        <div class="btn__wrapper">
+          <button class="modal__close-btn btn btn-agree" data-modal-agree-btn>
+            Agree
+          </button>
+          <button class="modal__close-btn btn btn-close" data-modal-close-btn>
+            Close
+          </button>
         </div>
-      </div>
-      <div class="modal__message">${message}</div>
-      <button class="modal__close-btn btn btn-close" data-modal-close-btn>
-        Close
-      </button>
-    `;
+      `;
+    } else {
+      modalElement.innerHTML = `
+        <div class="modal__header">
+          <div class="modal__title-icon">
+            <i class="${icon}"></i>
+          </div>
+          <div class="modal__title">${title}</div>
+          <div class="modal__close-icon" data-modal-close-icon>
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+        </div>
+        <div class="modal__message">${message}</div>
+        <button class="modal__close-btn btn btn-close" data-modal-close-btn>
+          Close
+        </button>
+      `;
+    }
 
     if (type === 'info' || type === 'success') {
       modalOverlayElement.style.transform = 'scaleY(0.01) scaleX(0)';
@@ -48,6 +74,21 @@ function modal({ title = '', message = '', type = 'info' }) {
       event.stopPropagation();
 
       if (event.target.closest('[data-modal-close-icon], [data-modal-close-btn]')) {
+        modalWrapperElement.removeChild(modalOverlayElement);
+      }
+
+      if (event.target.closest('[data-modal-agree-btn]')) {
+        if (keyName === 'home') {
+          isSavedPlayerName = true;
+          setTimeout(() => {
+            showSuccessToastNameAgain();
+          }, 400);
+        } else if (keyName === 'settings') {
+          isSavedPlayerSettings = true;
+          setTimeout(() => {
+            showSuccessToastDefaultSettings();
+          }, 400);
+        }
         modalWrapperElement.removeChild(modalOverlayElement);
       }
     });

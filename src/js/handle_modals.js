@@ -20,13 +20,58 @@ const handleAppLanguage = () => {
   });
 };
 
+const renderWarningHome = () => {
+  modal({
+    title: 'Warning',
+    message: `
+    Keep calm Bro!
+    <br>
+    This nickname already exists on the Leaderboard 💔. if it is yours, you could press the 
+    <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> 
+    to overwrite and save it.
+    <br>
+    If not, please turn off this pop-up window, then type an another cool 💓nickname💓.
+    <br>
+    <br>
+    Sorry for the inconvenience 😇.
+      `,
+    type: 'warning',
+    keyBtn: true,
+    keyName: 'home',
+  });
+};
+
 const renderWarningSettings = () => {
   modal({
     title: 'Warning',
     message: `
-      Game settings are set to default, are you sure you don't want to change it. If you want, \
-      press the <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--pink)">settings button</span> \
-      to enter the game settings and choose the game modes you want to experience.
+      Play mode is being <span style="font-family: 'fira-code-bold', sans-serif; color: var(--orange-dark); text-transform: uppercase">default</span>. 
+      <br>
+      If you wanna change it, turn off this pop-up window, then press the 
+      <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--pink)">settings button</span> at the homepage and customize the game mode you like.
+      <br>
+      If you don't wanna change it, press the <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> below then 
+      press the <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--blue)">continue button</span> at the homepage to go forward.
+      `,
+    type: 'warning',
+    keyBtn: true,
+    keyName: 'settings',
+  });
+};
+
+const renderWarningRules = () => {
+  modal({
+    title: 'Warning',
+    message: `
+      Hello Bro!
+      <br>
+      If you choose <span style="font-family: 'fira-code-bold', sans-serif;">'disagree'</span>, you cannot play the game. 
+      <br>
+      Turn off this pop-up window, read the rules and select <span style="font-family: 'fira-code-bold', sans-serif;">'agree'</span>, then press the 
+      <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--blue)">start button</span> to enjoy the game.
+      <br>
+      <br>
+      Sorry for the inconvenience.
     `,
     type: 'warning',
   });
@@ -41,4 +86,11 @@ const renderThankYouMessage = () => {
   });
 };
 
-export { renderAppInformation, handleAppLanguage, renderWarningSettings, renderThankYouMessage };
+export {
+  renderAppInformation,
+  handleAppLanguage,
+  renderWarningHome,
+  renderWarningSettings,
+  renderWarningRules,
+  renderThankYouMessage,
+};

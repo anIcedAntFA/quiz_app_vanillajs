@@ -9,9 +9,9 @@ const darkThemeLabel = $('[data-app-dark-theme-label]');
 
 //* HOME
 const appHomeElement = $('[data-app-home]');
-const formElement = $('[data-form-group]');
-const inputNicknameElement = $('[data-form-control-nickname]');
-const errorMessageElement = $('[data-form-message]');
+// const formElement = $('[data-form-group]');
+// const inputNicknameElement = $('[data-form-control-nickname]');
+// const errorMessageElement = $('[data-form-message]');
 
 //* SETTINGS
 const appSettingElement = $('[data-app-settings]');
@@ -27,8 +27,6 @@ const ruleListElement = $('[data-rules-list]');
 const questionWrapperElement = $('[data-question-wrapper]');
 const questionProgressElement = $('[data-question-progress]');
 const questionAnswerProgressElement = $('[data-question-answers-progress]');
-// const questionProgressTextElement = $('[data-question-progress-text]');
-// const questionProgressBarFullElement = $('[data-question-progress-bar-full]');
 const appTimerElement = $('[data-app-timer]');
 const questionTitleElement = $('[data-question-title]');
 const questionAnswerElement = $('[data-question-answers]');
@@ -69,6 +67,16 @@ const POINT_PLUS = 5;
 const POINT_MINUS = 3;
 const IS_VALID = true;
 const NUMBERS = /^-?[0-9]\d*(\.\d+)?$/; // only numbers from 0 to 9 including negative numbers
+
+let playerName;
+let isSavedPlayerName = false;
+let questionAmount;
+let questionDifficulty;
+let questionType;
+let questionCategory;
+let isSavedPlayerSettings = false;
+let isSavedPlayerRules = false;
+let isRuleAccepted = false;
 
 let shuffledQuestions;
 let currentQuestionIndex;

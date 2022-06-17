@@ -3,14 +3,26 @@ import { startCountdown } from './handle_timer.js';
 import { updateLocalStoragePlayers } from './local_storage.js';
 import { setNextQuestion } from './render_questions_answers.js';
 import renderResult from './render_result.js';
+import {
+  showErrorToastName,
+  showErrorToastRules,
+  showSuccessToastSavedResult,
+} from './handle_toasts.js';
+import { renderWarningSettings } from './handle_modals.js';
 
 function handleContinueButton() {
-  [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
-    addHide(element),
-  );
-  [appRuleElement, startBtnElement, exitBtnElement].forEach((element) => removeHide(element));
-  appControlsElement.style.flexDirection = 'row';
-  renderInfoList();
+  if (isSavedPlayerName && isSavedPlayerSettings) {
+    [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach(
+      (element) => addHide(element),
+    );
+    [appRuleElement, startBtnElement, exitBtnElement].forEach((element) => removeHide(element));
+    appControlsElement.style.flexDirection = 'row';
+    renderInfoList();
+  } else if (!isSavedPlayerName) {
+    showErrorToastName();
+  } else if (!isSavedPlayerSettings) {
+    renderWarningSettings();
+  }
 }
 
 function handleNextButton() {
@@ -44,13 +56,15 @@ function renderInfoList() {
 }
 
 function startGame() {
-  [exitBtnElement, startBtnElement, appRuleElement].forEach((element) => addHide(element));
-  removeHide(questionWrapperElement);
-
-  updateState();
-  setNextQuestion();
-
-  startCountdown();
+  if (isRuleAccepted) {
+    [exitBtnElement, startBtnElement, appRuleElement].forEach((element) => addHide(element));
+    removeHide(questionWrapperElement);
+    updateState();
+    setNextQuestion();
+    startCountdown();
+  } else if (!isRuleAccepted || isSavedPlayerRules) {
+    showErrorToastRules();
+  }
 }
 
 function saveGamePlayer() {
@@ -59,7 +73,6 @@ function saveGamePlayer() {
   timeTotalPlayer = minPlayer * 60 + secPlayer;
 
   removeHide(highScoresBtnElement);
-
   updateLocalStoragePlayers(
     playerName,
     score,
@@ -69,6 +82,7 @@ function saveGamePlayer() {
     percentAccuracy,
     (isApproved = true),
   );
+  showSuccessToastSavedResult();
 }
 
 function restartGame() {

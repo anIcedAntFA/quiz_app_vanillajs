@@ -37,7 +37,7 @@
   height: 2.8rem;
   margin: 0 2px;
 
-  background-color: var(--blue);
+  background-color: var(--blue-light);
 }
 
 .app__timer {
@@ -86,7 +86,7 @@
 
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 
   font-family: 'fira-code-semi-bold', sans-serif;
 

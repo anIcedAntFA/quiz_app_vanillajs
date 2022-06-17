@@ -35,21 +35,29 @@
         </header>
 
         <!--* Home *-->
-        <section class="app__home " data-app-home>
+        <section class="app__home" data-app-home>
           <p class="home__title--home">Welcome to the Quiz! 🐳</p>
-          <form action="" data-form>
-            <div class="form__group--home" data-form-group>
-              <label for="nickname" class="form__label--home"
-                >Do you have a 🔥<span>Cool Nickname</span>🔥</label
+          <form id="form__home" data-form-home>
+            <div class=" form__group--home" data-form-group>
+              <label for="nickname" class=" form__label--home"
+                >Do you have a <span>🔥Cool Nickname🔥</span></label
               >
-              <input
+              <div class="flex-wrapper">
+                <input
                 id="nickname"
                 name="nickname"
                 type="text"
-                placeholder="Let's type your cool nickname!"
+                placeholder="Let's type your nickname..."
                 class="form__control--home"
+                autofocus
                 data-form-control-nickname
-              />
+                />
+                <button class="form__submit btn btn-submit-home">
+                  <i class="fa-solid fa-floppy-disk"></i>
+                  Save
+                </button>
+              </div>
+              <span class="form__message" data-form-message></span>
             </div>
           </form>
           <p class="home__description">
@@ -68,97 +76,108 @@
             Game Settings
             <i class="fa-solid fa-sliders"></i>
           </h3>
-          <form action="" class="form__wrapper">
-            <!--* Quantity *-->
-            <div class="form__group" data-form-group-questions>
-              <label for="quantity" class="form__label">Amount of Questions</label>
-              <input
-                id="quantity"
-                name="quantity"
-                type="text"
-                placeholder="Min is 5 and max is 20."
-                class="form__control"
-                data-form-control-questions
-              />
+          <form id="form__settings" class="form__wrapper" data-form-settings>
+            <!--* Amount *-->
+            <div class="form__group" data-form-group>
+              <div class="flex-wrapper">
+                <label for="amount" class="form__label">Amount of Questions</label>
+                <input
+                  id="amount"
+                  name="amount"
+                  type="text"
+                  value="10"      
+                  placeholder="Min is 5 and max is 20."
+                  class="form__control"
+                  data-form-control-amount
+                />
+              </div>
+              <span class="form__message" data-form-message></span>
             </div>
 
             <!--* Difficulty *-->
-            <div class="form__group" form-group>
-              <label for="difficulty" class="form__label">Difficulty</label>
-              <select
-                name="difficulty"
-                id="difficulty"
-                class="form__control custom-select text-center"
-                data-form-control-difficulty
-              >
-                <option value="5">--- Difficulty ---</option>
-                <option value="1">------ Easy ------</option>
-                <option value="2" selected="selected">----- Medium -----</option>
-                <option value="3">------ Hard ------</option>
-              </select>
+            <div class="form__group" data-form-group>
+              <div class="flex-wrapper">
+                <label for="difficulty" class="form__label">Difficulty</label>
+                <select
+                  name="difficulty"
+                  id="difficulty"
+                  class="form__control custom-select text-center"
+                  data-form-control-difficulty
+                >
+                  <option value="">--- Difficulty ---</option>
+                  <option value="easy">------ Easy ------</option>
+                  <option value="medium" selected="selected">----- Medium -----</option>
+                  <option value="hard">------ Hard ------</option>
+                </select>
+              </div>
+              <span class="form__message" data-form-message></span>
             </div>
 
             <!--* Type *-->
-            <div class="form__group" form-group>
-              <label for="type" class="form__label">Type</label>
-              <select
-                name="type"
-                id="type"
-                class="form__control custom-select text-center"
-                data-form-control-type
-              >
-                <option value="">------ Type ------</option>
-                <option value="wsj">- Multiple Choice -</option>
-                <option value="wsj">-- True / False --</option>
-                <option value="wsj">----- Random -----</option>
-              </select>
+            <div class="form__group" data-form-group>
+              <div class="flex-wrapper">
+                <label for="type" class="form__label">Type</label>
+                <select
+                  name="type"
+                  id="type"
+                  class="form__control custom-select text-center"
+                  data-form-control-type
+                >
+                  <option value="">------ Type ------</option>
+                  <option value="multiple choice">- Multiple Choice -</option>
+                  <option value="true / false">-- True / False --</option>
+                  <option value="random" selected="selected">----- Random -----</option>
+                </select>
+              </div>
+              <span class="form__message" data-form-message></span>
             </div>
 
             <!--* Category *-->
-            <div class="form__group" form-group>
+            <div class="form__group" data-form-group>
               <label for="genre" class="form__label">Category</label>
               <div class="genre__category flex flex-jc-sb flex-wrap">
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="animal" name="animal" />
+                  <input type="checkbox" id="animal" name="category" value="animal" checked data-form-control-category />
                   <span class="check-mark" id="animal"></span>
                   <label for="animal">Animal</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="geography" name="geography" />
+                  <input type="checkbox" id="geography" name="category" value="geography" data-form-control-category />
                   <span class="check-mark" id="geography"></span>
                   <label for="geography">Geography</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="sports" name="sports" />
+                  <input type="checkbox" id="sports" name="category" value="sports" data-form-control-category />
                   <span class="check-mark" id="sports"></span>
                   <label for="sports">Sports</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="history" name="history" />
+                  <input type="checkbox" id="history" name="category" value="history" data-form-control-category />
                   <span class="check-mark" id="history"></span>
                   <label for="history">History</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="chemistry" name="chemistry" />
+                  <input type="checkbox" id="chemistry" name="category" value="chemistry" checked data-form-control-category />
                   <span class="check-mark" id="chemistry"></span>
                   <label for="chemistry">Chemistry</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="it" name="it" />
+                  <input type="checkbox" id="it" name="category" value="it" checked data-form-control-category />
                   <span class="check-mark" id="it"></span>
                   <label for="it">IT</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="math" name="math" />
+                  <input type="checkbox" id="math" name="category" value="math" checked data-form-control-category />
                   <span class="check-mark" id="math"></span>
                   <label for="math">Math</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="general" name="general" />
+                  <input type="checkbox" id="general" name="category" value="general" checked data-form-control-category />
                   <span class="check-mark" id="math"></span>
                   <label for="general">General</label>
                 </label>
               </div>
+              <span class="form__message" data-form-message></span>
             </div>
           </form>
         </section>
@@ -169,62 +188,36 @@
           <hr />
           <div class="rules__list" data-rules-list></div>
           <hr />
-          <div class="form__group form__group--rules gender__details" form-group>
-            <label for="gender__details" class="form__label form__label--rules"
-              >Do you agree or disagree with the Rule above?</label
-            >
-            <input type="radio" name="gender" value="male" id="dot-1" />
-            <input type="radio" name="gender" value="female" id="dot-2" />
-            <div class="gender__category">
-              <label for="dot-1">
-                <span class="dot one"></span>
-                <span class="gender__male">Disagree</span>
-              </label>
-              <label for="dot-2">
-                <span class="dot two"></span>
-                <span class="gender__female">Agree</span>
-              </label>
+          <form id="form__rules" data-form-rules>
+            <div class="form__group rules__decision" data-form-group>
+              <label for="rules__decision" class="form__label--rules"
+                >Do you agree or disagree with the Rule above?</label
+              >
+              <input type="radio" name="decision" value="disagree" id="dot-1" data-form-control-rules />
+              <input type="radio" name="decision" value="agree" id="dot-2" data-form-control-rules />
+              <div class="decision__category">
+                <label for="dot-1">
+                  <span class="dot one"></span>
+                  <span class="gender__disagree">Disagree</span>
+                </label>
+                <label for="dot-2">
+                  <span class="dot two"></span>
+                  <span class="gender__agree">Agree</span>
+                </label>
+              </div>
+              <button class="form__submit btn btn-submit-rules">Submit</button>
+              <span class="form__message" data-form-message></span>
             </div>
-          </div>
+          </form>
         </section>
 
         <!--* Questions *-->
         <section class="question__wrapper hide" data-question-wrapper>
           <div class="question__progress" data-question-progress></div>
           <time class="app__timer" data-app-timer>Time left: 1:30</time>
-          <p class="question__title" data-question-title>An elephant is smaller than a hippo?</p>
-          <div class="question__answers" data-question-answers>
-            <!-- <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
-              A. Central Processing Unit
-            </button>
-            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
-              A. Central Processing Unit
-            </button>
-            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
-              A. Central Processing Unit
-            </button>
-            <button class="btn btn-question" style="width: calc(50% - 2rem)" data-correct="true">
-              A. Central Processing Unit
-            </button> -->
-          </div>
-          <div class="question__answers-progress" data-question-answers-progress>
-            <!-- <div class="answer__progress answer__progress--correct">
-              <p class="answer__progress-text">Correct answers: 4</p>
-              <div class="answer__progress-bar">
-                <div class="answer__progress-bar-inner">
-                 70%
-                </div>
-              </div>
-            </div>
-            <div class="answer__progress answer__progress--wrong">
-              <p class="answer__progress-text">Wrong answers: 2</p>
-              <div class="answer__progress-bar">
-                <div class="answer__progress-bar-inner">
-                  30%
-                </div>
-              </div>
-            </div> -->
-          </div>
+          <p class="question__title" data-question-title></p>
+          <div class="question__answers" data-question-answers></div>
+          <div class="question__answers-progress" data-question-answers-progress></div>
         </section>
 
         <!--* Result *-->
@@ -250,15 +243,15 @@
 
         <!--* Controls *-->
         <section class="app__controls" data-app-controls>
-          <button class="btn btn-settings " data-btn-settings>
+          <button class="btn btn-settings" data-btn-settings>
             <i class="fa-solid fa-gears"></i>
             Settings
           </button>
-          <button class="btn btn-submit hide" data-btn-submit>
+          <button form="form__settings" class="btn btn-submit-settings hide" data-btn-submit>
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="btn btn-continue " data-btn-continue>
+          <button class="btn btn-continue" data-btn-continue>
             <i class="fa-solid fa-angle-right"></i>
             Continue
           </button>
@@ -286,7 +279,7 @@
             <i class="fa-solid fa-floppy-disk"></i>
             Save
           </button>
-          <button class="btn btn-high-scores " data-btn-high-scores>
+          <button class="btn btn-high-scores" data-btn-high-scores>
             <i class="fa-solid fa-crown"></i>
             Scores
           </button>
@@ -321,26 +314,41 @@
       <!--* Modals *-->
       <div id="modal" data-modal>
         <!-- <div class="modal__overlay">
-          <div class="modal modal--info">
+          <div class="modal modal--warning">
             <div class="modal__header">
               <div class="modal__title-icon">
-                <i class="fa-solid fa-circle-info"></i>
+                <i class="fa-solid fa-triangle-exclamation"></i>
               </div>
-              <div class="modal__title">Information!!</div>
+              <div class="modal__title">WARNING!!</div>
               <div class="modal__close-icon">
                 <i class="fa-solid fa-xmark"></i>
               </div>
             </div>
             <div class="modal__message">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              Keep calm Bro!
+              <br>
+              This nickname already exists 💔. if it is yours, you could press the 
+              <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> 
+              to overwrite and save it.
+              <br>
+              If not, please turn off this pop-up window, then type an another cool 💓nickname💓.
+              <br>
+              <br>
+              Sorry for the inconvenience 😇.
             </div>
-            <button class="modal__close-btn btn btn-close">
-              Close
-            </button>
+            <div class="btn__wrapper">
+              <button class="modal__close-btn btn btn-agree">
+                Agree
+              </button>
+              <button class="modal__close-btn btn btn-close">
+                Close
+              </button>
+            </div>
           </div>
         </div> -->
       </div>
     <script src="./src/js/global_variables.js"></script>
     <script type="module" src="./src/js/index.js"></script>
+
   </body>
 </html>

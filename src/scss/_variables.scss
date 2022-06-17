@@ -39,7 +39,7 @@ $colors: (
     --#{$name}-light: #{lighten($color, 8%)};
   }
 
-  --red-blur: hsl(348, 100%, 97%);
+  --red-blur: hsl(348, 100%, 96%);
   --green-blur: hsl(154, 91%, 98%);
   --blue-blur: hsl(218, 96%, 96%);
   --yellow-blur: hsl(48, 100%, 98%);

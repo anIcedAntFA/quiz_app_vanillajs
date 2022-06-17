@@ -7,7 +7,6 @@ function startCountdown() {
       min = Math.floor(timer / 60);
       sec = timer % 60;
       appTimerElement.innerHTML = `Time left: ${min}:${sec}`;
-      console.log(min, sec);
     } else {
       saveTimePlayer();
       updateTimer();

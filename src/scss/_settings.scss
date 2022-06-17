@@ -10,6 +10,21 @@
   }
 }
 
+.form__heading {
+  min-width: 40rem;
+  width: 80%;
+  margin-bottom: 3.2rem;
+  padding: 1rem 1.2rem;
+  border: 3px solid var(--pink);
+  border-radius: var(--border-radius-primary);
+  border-bottom-width: 6px;
+
+  text-align: center;
+  font-family: 'fira-code-bold', sans-serif;
+  font-size: var(--font-size-lg);
+  color: var(--pink);
+}
+
 .form__wrapper {
   display: flex;
   flex-direction: column;
@@ -20,27 +35,13 @@
   padding: 1rem 1.6rem 0 1.6rem;
   border: 3px solid var(--pink);
   border-radius: var(--border-radius-primary);
-}
-
-.form__heading {
-  min-width: 40rem;
-  width: 80%;
-  margin-bottom: 3.2rem;
-  padding: 1rem 1.2rem;
-  border: 3px dashed var(--pink);
-  border-radius: var(--border-radius-primary);
-
-  text-align: center;
-  font-family: 'fira-code-bold', sans-serif;
-  font-size: var(--font-size-lg);
-  color: var(--pink);
+  border-bottom-width: 6px;
 }
 
 .form__group {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 4px;
   flex-wrap: wrap;
 
   position: relative;
@@ -52,16 +53,28 @@
     color: var(--state-wrong);
   }
 
-  &:last-child {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+  &:last-child .form__message {
+    align-self: center;
+    margin-bottom: 1rem;
+  }
+
+  &.invalid .form__control {
+    border-color: var(--red);
+    background-color: var(--red-blur);
+
+    &:hover {
+      background: var(--gray0);
+    }
   }
 }
 
-.form__label,
-.form__message {
-  text-align: left;
+.flex-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.4rem;
+
+  width: 100%;
 }
 
 .form__label {
@@ -85,28 +98,25 @@
   border-radius: var(--form-border-radius);
   outline: none;
 
+  text-align: center;
   font-size: var(--font-size-med);
 
   &:hover {
     border-color: var(--pink);
   }
+}
 
-  // &.invalid {
-  //   border-color: var(--red);
-  //   background: var(--red-blur);
-
-  //   &:hover {
-  //     background-color: var(--white);
-  //   }
-  // }
+.form__message {
+  color: var(--state-wrong);
 }
 
 .genre__category {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  gap: 1.2rem;
 
-  margin-top: 1rem;
+  margin: 1.6rem 0 1rem 0;
 }
 
 .genre__wrapper {
@@ -114,7 +124,6 @@
   position: relative;
   width: calc(100% / 4 - 1.6rem);
   padding-left: 3.2rem;
-  margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;

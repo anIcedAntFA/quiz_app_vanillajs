@@ -15,9 +15,9 @@ function updateState() {
   isSavedPlayer = false;
   playerLeft = false;
 
-  const playerName = inputNicknameElement.value;
-  localStorage.setItem('newest-player-name', playerName);
-  setLocalStoragePlayers(playerName);
+  const newestPlayerName = playerName;
+  localStorage.setItem('newest-player-name', newestPlayerName);
+  setLocalStoragePlayers(newestPlayerName);
 }
 
 const addHide = (element) => element.classList.add('hide');

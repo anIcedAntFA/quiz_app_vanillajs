@@ -23,7 +23,6 @@ function renderLeaderboard() {
   appControlsElement.style.margin = '4rem 0';
 
   const players = getLocalStoragePlayers().filter((player) => player.is_approved === true);
-  console.log(players);
   players.sort((element1, element2) => {
     return (
       //* case 1: different scores => sort by scores
@@ -77,13 +76,13 @@ function renderLeaderboard() {
 
   if (currentLocalStoragePlayersLength === 1) {
     leaderboardDescriptionElement.innerHTML = `
-    Well done 🔥<span>${players[0].player_name}</span>🔥 😍‼️ 
-    You are the <span>first</span> 🤪 to get a position on the ⭐<span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">Leaderboard</span>⭐ 🚀🚀🚀.
+    Well done <span>🔥${players[0].player_name}🔥</span> 😍‼️ 
+    You are the <span>first</span> to get a position on the <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
     Please invite your friends to play together ☺️.
   `;
   } else if (currentLocalStoragePlayersLength > 1) {
     leaderboardDescriptionElement.innerHTML = `
-      Well done guys 😍‼️ Especially 🔥<span>${players[0].player_name}</span>🔥,
+      Well done guys 😍‼️ Especially <span>🔥${players[0].player_name}🔥</span>,
       <br />
       you have reached a <span>top 1</span> ranking 🎉🎉🎉.
     `;
@@ -92,7 +91,7 @@ function renderLeaderboard() {
       Oh well 👻‼️ No one is currently on the Leaderboard 😅,
       <br />
       I bet you are smart 🐧, follow the instructions to conquer this game and 
-      be the first to put your name on the ⭐<span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">Leaderboard</span>⭐ 🚀🚀🚀.
+      be the first to put your name on the <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
     `;
   }
 }

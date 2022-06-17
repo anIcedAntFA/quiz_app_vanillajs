@@ -1,6 +1,5 @@
 function toast({ title = '', message = '', type = 'info', duration = 4000 }) {
   if (toastWrapperElement) {
-    const toast = document.createElement('div');
     const icons = {
       success: 'fa-solid fa-circle-check',
       info: 'fa-solid fa-circle-info',
@@ -10,6 +9,7 @@ function toast({ title = '', message = '', type = 'info', duration = 4000 }) {
     const icon = icons[type];
     const delay = (duration / 1000).toFixed(2);
 
+    const toast = document.createElement('div');
     toast.classList.add('toast', `toast--${type}`);
     toast.style.animation = `slideInLeft ease .3s, fadeOut linear 1s ${delay}s forwards`;
 

@@ -20,8 +20,9 @@
   min-width: 40rem;
   width: 80%;
   padding: 1rem 1.2rem;
-  border: 3px dashed var(--state-correct);
+  border: 3px solid var(--state-correct);
   border-radius: var(--border-radius-primary);
+  border-bottom-width: 6px;
 
   text-align: center;
   font-family: 'fira-code-bold', sans-serif;

@@ -1,12 +1,4 @@
 import {
-  isEmpty,
-  validateNickname,
-  validateQuestions,
-  validateDifficulty,
-  validateType,
-  setValid,
-} from './validate_form.js';
-import {
   handleContinueButton,
   handleNextButton,
   handleBackButton,
@@ -17,28 +9,14 @@ import {
   exitGame,
 } from './app.js';
 import renderLeaderboard from './render_leaderboard.js';
-import { renderAppInformation, handleAppLanguage, renderWarningSettings } from './handle_modals.js';
+import { renderAppInformation, handleAppLanguage } from './handle_modals.js';
 
 function handleEvents() {
   appInformationToggle.addEventListener('click', renderAppInformation);
-  appLanguageToggle.addEventListener('click', renderWarningSettings);
-
-  // inputNicknameElement.addEventListener('focusout', validateNickname);
-  // inputQuestionsElement.addEventListener('focusout', validateQuestions);
-  // inputDifficultyElement.addEventListener('focusout', validateDifficulty);
-  // inputDifficultyElement.addEventListener('change', () => {
-  //   if (isEmpty(inputDifficultyElement.value.trim())) validateDifficulty();
-  // });
-  // inputTypeElement.addEventListener('focusout', validateType);
-  // inputTypeElement.addEventListener('change', () => {
-  //   if (isEmpty(inputTypeElement.value.trim())) validateType();
-  // });
-  // inputNicknameElement.addEventListener('input', setValid);
+  appLanguageToggle.addEventListener('click', handleAppLanguage);
 
   settingBtnElement.addEventListener('click', renderGameSettings);
-  continueBtnElement.addEventListener('click', () => {
-    if (validateNickname('error')) handleContinueButton();
-  });
+  continueBtnElement.addEventListener('click', handleContinueButton);
   startBtnElement.addEventListener('click', startGame);
   nextBtnElement.addEventListener('click', handleNextButton);
   saveBtnElement.addEventListener('click', saveGamePlayer);

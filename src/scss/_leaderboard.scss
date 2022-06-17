@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 3.2rem;
 
   &.hide {
     display: none;
@@ -17,8 +17,9 @@
   // min-width: 40rem;
   // width: 80%;
   padding: 1rem 4rem;
-  border: 3px dashed var(--green);
+  border: 3px solid var(--green);
   border-radius: var(--border-radius-primary);
+  border-bottom-width: 6px;
 
   text-align: center;
   font-family: 'fira-code-bold', sans-serif;
@@ -27,7 +28,7 @@
 }
 
 .leaderboard__table {
-  max-height: 21.2rem;
+  max-height: 28.6rem;
   overflow-y: scroll;
 
   table,
