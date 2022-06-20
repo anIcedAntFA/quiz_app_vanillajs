@@ -1,4 +1,5 @@
 import modal from './lib/modals.js';
+import { showSuccessToastNameAgain, showSuccessToastDefaultSettings } from './handle_toasts.js';
 
 const renderAppInformation = () => {
   modal({
@@ -37,7 +38,12 @@ const renderWarningHome = () => {
       `,
     type: 'warning',
     keyBtn: true,
-    keyName: 'home',
+    handleKeyName: function () {
+      isSavedPlayerName = true;
+      warningDuplicateNameTimerId = setTimeout(() => {
+        showSuccessToastNameAgain();
+      }, 400);
+    },
   });
 };
 
@@ -55,7 +61,12 @@ const renderWarningSettings = () => {
       `,
     type: 'warning',
     keyBtn: true,
-    keyName: 'settings',
+    handleKeyName: function () {
+      isSavedPlayerSettings = true;
+      warningDefaultSettingsTimerId = setTimeout(() => {
+        showSuccessToastDefaultSettings();
+      }, 400);
+    },
   });
 };
 

@@ -1,9 +1,9 @@
-const questionsList = [
+const data = [
   {
     question: 'What does CPU stand for?',
     category: 'Computer',
-    type: 'Multiple',
-    difficulty: 'Easy',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
     answers: [
       { text: 'A. Central Processing Unit', correct: true },
       { text: 'B. Center Processing Unit', correct: false },
@@ -15,7 +15,7 @@ const questionsList = [
     question: 'An elephant is smaller than a hippo?',
     category: 'Animals',
     type: 'True / False',
-    difficulty: 'Easy',
+    difficulty: 'Medium',
     answers: [
       { text: 'A. True', correct: false },
       { text: 'B. False', correct: true },
@@ -24,7 +24,7 @@ const questionsList = [
   {
     question: 'Is web development fun?',
     category: 'General',
-    type: 'Multiple',
+    type: 'Multiple Choice',
     difficulty: 'Easy',
     answers: [
       { text: 'A. Um no', correct: false },
@@ -35,7 +35,7 @@ const questionsList = [
   {
     question: 'How many legs has a snake got?',
     category: 'Animals',
-    type: 'Multiple',
+    type: 'Multiple Choice',
     difficulty: 'Easy',
     answers: [
       { text: 'A. 2', correct: false },
@@ -47,8 +47,8 @@ const questionsList = [
   {
     question: 'Where could you go when you are feeling sick/had an accident?',
     category: 'General',
-    type: 'Multiple',
-    difficulty: 'Easy',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
     answers: [
       { text: "A. Girlfriend's house", correct: false },
       { text: 'B. Swimming pool', correct: false },
@@ -58,6 +58,88 @@ const questionsList = [
       { text: 'G. All are wrong', correct: false },
     ],
   },
+  {
+    question: 'What is the capital of Japan?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Easy',
+    answers: [
+      { text: 'A. Tokyo', correct: true },
+      { text: 'B. Kyoto', correct: false },
+      { text: 'C. Osaka', correct: false },
+      { text: 'D. Hiroshima', correct: false },
+    ],
+  },
+  {
+    question: 'What is the capital of Italy?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
+    answers: [
+      { text: 'A. Venice', correct: false },
+      { text: 'B. Rome', correct: true },
+      { text: 'C. Florence', correct: false },
+      { text: 'D. Milan', correct: false },
+    ],
+  },
+  {
+    question: 'What is the capital of China?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Easy',
+    answers: [
+      { text: 'A. Shanghai', correct: false },
+      { text: 'B. Beijing', correct: true },
+      { text: 'C. Chongqing', correct: false },
+      { text: 'D. Wuhan', correct: false },
+    ],
+  },
+  {
+    question: 'What is the capital of Italy?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
+    answers: [
+      { text: 'A. Toronto', correct: false },
+      { text: 'B. Hamilton', correct: false },
+      { text: 'C. Victoria', correct: false },
+      { text: 'D. Ottawa', correct: true },
+    ],
+  },
+  {
+    question: 'What is the capital of India?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
+    answers: [
+      { text: 'A. New Delhi', correct: true },
+      { text: 'B. Mumbai', correct: false },
+      { text: 'C. Jaipur', correct: false },
+      { text: 'D. Kolkata', correct: false },
+    ],
+  },
+  {
+    question: 'What is the capital of Australia?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
+    answers: [
+      { text: 'A. Sydney', correct: false },
+      { text: 'B. Canberra', correct: true },
+      { text: 'C. Melbourne', correct: false },
+      { text: 'D. Perth', correct: false },
+    ],
+  },
+  {
+    question: 'What is the capital of Australia?',
+    category: 'Geography',
+    type: 'Multiple Choice',
+    difficulty: 'Medium',
+    answers: [
+      { text: 'A. Sydney', correct: false },
+      { text: 'B. Canberra', correct: true },
+      { text: 'C. Melbourne', correct: false },
+      { text: 'D. Perth', correct: false },
+    ],
+  },
 ];
-
-export default questionsList;

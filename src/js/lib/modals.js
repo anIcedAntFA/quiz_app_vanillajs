@@ -1,6 +1,4 @@
-import { showSuccessToastNameAgain, showSuccessToastDefaultSettings } from '../handle_toasts.js';
-
-function modal({ title = '', message = '', type = 'info', keyBtn = false, keyName = '' }) {
+function modal({ title = '', message = '', type = 'info', keyBtn = false, handleKeyName }) {
   if (modalWrapperElement) {
     const icons = {
       success: 'fa-solid fa-circle-check',
@@ -78,17 +76,7 @@ function modal({ title = '', message = '', type = 'info', keyBtn = false, keyNam
       }
 
       if (event.target.closest('[data-modal-agree-btn]')) {
-        if (keyName === 'home') {
-          isSavedPlayerName = true;
-          setTimeout(() => {
-            showSuccessToastNameAgain();
-          }, 400);
-        } else if (keyName === 'settings') {
-          isSavedPlayerSettings = true;
-          setTimeout(() => {
-            showSuccessToastDefaultSettings();
-          }, 400);
-        }
+        handleKeyName && handleKeyName();
         modalWrapperElement.removeChild(modalOverlayElement);
       }
     });

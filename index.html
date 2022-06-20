@@ -85,7 +85,7 @@
                   id="amount"
                   name="amount"
                   type="text"
-                  value="10"      
+                  value="5"      
                   placeholder="Min is 5 and max is 20."
                   class="form__control"
                   data-form-control-amount
@@ -137,9 +137,9 @@
               <label for="genre" class="form__label">Category</label>
               <div class="genre__category flex flex-jc-sb flex-wrap">
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="animal" name="category" value="animal" checked data-form-control-category />
-                  <span class="check-mark" id="animal"></span>
-                  <label for="animal">Animal</label>
+                  <input type="checkbox" id="animals" name="category" value="animals" checked data-form-control-category />
+                  <span class="check-mark" id="animals"></span>
+                  <label for="animals">Animals</label>
                 </label>
                 <label class="genre__wrapper">
                   <input type="checkbox" id="geography" name="category" value="geography" data-form-control-category />
@@ -162,9 +162,9 @@
                   <label for="chemistry">Chemistry</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="it" name="category" value="it" checked data-form-control-category />
-                  <span class="check-mark" id="it"></span>
-                  <label for="it">IT</label>
+                  <input type="checkbox" id="computer" name="category" value="computer" checked data-form-control-category />
+                  <span class="check-mark" id="computer"></span>
+                  <label for="computer">Computer</label>
                 </label>
                 <label class="genre__wrapper">
                   <input type="checkbox" id="math" name="category" value="math" checked data-form-control-category />
@@ -213,7 +213,9 @@
 
         <!--* Questions *-->
         <section class="question__wrapper hide" data-question-wrapper>
-          <div class="question__progress" data-question-progress></div>
+          <div class="question__progress" data-question-progress>
+            
+          </div>
           <time class="app__timer" data-app-timer>Time left: 1:30</time>
           <p class="question__title" data-question-title></p>
           <div class="question__answers" data-question-answers></div>
@@ -312,41 +314,7 @@
       <div id="toast" data-toast></div>
 
       <!--* Modals *-->
-      <div id="modal" data-modal>
-        <!-- <div class="modal__overlay">
-          <div class="modal modal--warning">
-            <div class="modal__header">
-              <div class="modal__title-icon">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-              </div>
-              <div class="modal__title">WARNING!!</div>
-              <div class="modal__close-icon">
-                <i class="fa-solid fa-xmark"></i>
-              </div>
-            </div>
-            <div class="modal__message">
-              Keep calm Bro!
-              <br>
-              This nickname already exists 💔. if it is yours, you could press the 
-              <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> 
-              to overwrite and save it.
-              <br>
-              If not, please turn off this pop-up window, then type an another cool 💓nickname💓.
-              <br>
-              <br>
-              Sorry for the inconvenience 😇.
-            </div>
-            <div class="btn__wrapper">
-              <button class="modal__close-btn btn btn-agree">
-                Agree
-              </button>
-              <button class="modal__close-btn btn btn-close">
-                Close
-              </button>
-            </div>
-          </div>
-        </div> -->
-      </div>
+      <div id="modal" data-modal></div>
     <script src="./src/js/global_variables.js"></script>
     <script type="module" src="./src/js/index.js"></script>
 

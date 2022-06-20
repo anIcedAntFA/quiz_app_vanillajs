@@ -1,4 +1,4 @@
-import { updateState, addHide, removeHide } from './common_function.js';
+import { resetSettingsState, updateState, addHide, removeHide } from './common_function.js';
 import { startCountdown } from './handle_timer.js';
 import { updateLocalStoragePlayers } from './local_storage.js';
 import { setNextQuestion } from './render_questions_answers.js';
@@ -17,12 +17,15 @@ function handleContinueButton() {
     );
     [appRuleElement, startBtnElement, exitBtnElement].forEach((element) => removeHide(element));
     appControlsElement.style.flexDirection = 'row';
+
     renderInfoList();
   } else if (!isSavedPlayerName) {
     showErrorToastName();
   } else if (!isSavedPlayerSettings) {
     renderWarningSettings();
   }
+  clearTimeout(warningDuplicateNameTimerId);
+  clearTimeout(warningDefaultSettingsTimerId);
 }
 
 function handleNextButton() {
@@ -59,6 +62,7 @@ function startGame() {
   if (isRuleAccepted) {
     [exitBtnElement, startBtnElement, appRuleElement].forEach((element) => addHide(element));
     removeHide(questionWrapperElement);
+    resetSettingsState();
     updateState();
     setNextQuestion();
     startCountdown();
@@ -69,20 +73,24 @@ function startGame() {
 
 function saveGamePlayer() {
   const playerName = localStorage.getItem('newest-player-name');
-  isSavedPlayer = true;
+  isSavedPlayerResult = true;
   timeTotalPlayer = minPlayer * 60 + secPlayer;
-
-  removeHide(highScoresBtnElement);
-  updateLocalStoragePlayers(
-    playerName,
-    score,
-    minPlayer,
-    secPlayer,
-    timeTotalPlayer,
-    percentAccuracy,
-    (isApproved = true),
-  );
-  showSuccessToastSavedResult();
+  saveNumber++;
+  if (saveNumber <= 1) {
+    highScoresBtnElementTimerId = setTimeout(() => {
+      removeHide(highScoresBtnElement);
+    }, 1000);
+    updateLocalStoragePlayers(
+      playerName,
+      score,
+      minPlayer,
+      secPlayer,
+      timeTotalPlayer,
+      percentAccuracy,
+      (isApproved = true),
+    );
+    showSuccessToastSavedResult();
+  }
 }
 
 function restartGame() {
@@ -96,6 +104,8 @@ function restartGame() {
   ].forEach((element) => addHide(element));
   removeHide(questionWrapperElement);
 
+  clearTimeout(highScoresBtnElementTimerId);
+
   updateState();
   setNextQuestion();
 
@@ -105,6 +115,7 @@ function restartGame() {
 
 function exitGame() {
   playerLeft = true;
+
   appControlsElement.style.margin = '4rem 0';
   appControlsElement.style.flexDirection = 'row-reverse';
   [
@@ -122,6 +133,7 @@ function exitGame() {
   [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach((element) =>
     removeHide(element),
   );
+  clearTimeout(highScoresBtnElementTimerId);
 }
 
 export {

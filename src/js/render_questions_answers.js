@@ -1,4 +1,3 @@
-import questionsList from './data.js';
 import { removeHide, setStatusClass, resetState } from './common_function.js';
 import { updateTimer, saveTimePlayer } from './handle_timer.js';
 import renderResult from './render_result.js';
@@ -53,15 +52,12 @@ answerProgressWrongElement.appendChild(answerProgressBarWrongElement);
 questionAnswerProgressElement.appendChild(answerProgressWrongElement);
 //****************************************************************************************************** */
 
-let url = 'https://api.npoint.io/ae231eaa6937096d0d3e';
-let response = await fetch(url);
-
 function updateQuestionProgress() {
   questionProgressTextElement.innerHTML = `
-    Question ${currentQuestionIndex + 1} of ${questionsList.length}
+    Question ${currentQuestionIndex + 1} of ${questionsOutput.length}
   `;
   questionProgressBarFullElement.style.width = `
-    ${(currentQuestionIndex / questionsList.length) * 100}%
+    ${(currentQuestionIndex / questionsOutput.length) * 100}%
   `;
 }
 
@@ -70,11 +66,11 @@ function updateAnswerProgressCorrect() {
     Correct answers: ${correctAnswer}
   `;
   answerProgressBarInnerCorrectElement.style.width = `
-    ${(correctAnswer / questionsList.length) * 100}%
+    ${(correctAnswer / questionsOutput.length) * 100}%
   `;
   if (correctAnswer !== 0) {
     answerProgressBarInnerCorrectElement.innerHTML = `
-      ${(correctAnswer / questionsList.length) * 100}%
+    ${Math.round(((correctAnswer / questionsOutput.length) * 100 + Number.EPSILON) * 100) / 100}%
     `;
   }
 }
@@ -84,11 +80,11 @@ function updateAnswerProgressWrong() {
     Wrong answers: ${wrongAnswer}
   `;
   answerProgressBarInnerWrongElement.style.width = `
-    ${(wrongAnswer / questionsList.length) * 100}%
+    ${(wrongAnswer / questionsOutput.length) * 100}%
   `;
   if (wrongAnswer !== 0) {
     answerProgressBarInnerWrongElement.innerHTML = `
-      ${(wrongAnswer / questionsList.length) * 100}%
+    ${Math.round(((wrongAnswer / questionsOutput.length) * 100 + Number.EPSILON) * 100) / 100}%
     `;
   }
 }
@@ -147,7 +143,7 @@ function selectAnswer(event) {
   const selectedAnswer = event.target;
   const correctDataAttribute = selectedAnswer.dataset.correct;
   handleCorrectAnswer(correctDataAttribute);
-  handleQuestionsList(correctDataAttribute);
+  handleDataAttribute(correctDataAttribute);
 }
 
 function handleCorrectAnswer(correct) {
@@ -167,7 +163,7 @@ function handleCorrectAnswer(correct) {
   });
 }
 
-function handleQuestionsList() {
+function handleDataAttribute() {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     removeHide(nextBtnElement);
     appControlsElement.style.margin = '0';

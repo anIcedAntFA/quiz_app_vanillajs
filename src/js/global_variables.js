@@ -1,4 +1,5 @@
 const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
 //* HEADER
 const appHeaderElement = $('[data-app-header]');
@@ -9,15 +10,13 @@ const darkThemeLabel = $('[data-app-dark-theme-label]');
 
 //* HOME
 const appHomeElement = $('[data-app-home]');
-// const formElement = $('[data-form-group]');
-// const inputNicknameElement = $('[data-form-control-nickname]');
-// const errorMessageElement = $('[data-form-message]');
 
 //* SETTINGS
 const appSettingElement = $('[data-app-settings]');
-const inputQuestionsElement = $('[data-form-control-questions]');
+const inputAmountElement = $('[data-form-control-amount]');
 const inputDifficultyElement = $('[data-form-control-difficulty]');
 const inputTypeElement = $('[data-form-control-type]');
+const inputCategoryElements = $$('[data-form-control-category]');
 
 //* INFO
 const appRuleElement = $('[data-app-rules]');
@@ -68,13 +67,16 @@ const POINT_MINUS = 3;
 const IS_VALID = true;
 const NUMBERS = /^-?[0-9]\d*(\.\d+)?$/; // only numbers from 0 to 9 including negative numbers
 
+//* HOME
 let playerName;
 let isSavedPlayerName = false;
+//* SETTINGS
 let questionAmount;
 let questionDifficulty;
 let questionType;
 let questionCategory;
 let isSavedPlayerSettings = false;
+//* RULES
 let isSavedPlayerRules = false;
 let isRuleAccepted = false;
 
@@ -86,6 +88,7 @@ let percentAccuracy;
 let score;
 let count;
 
+//* TIMER
 let timer = 90;
 let min;
 let sec;
@@ -95,7 +98,16 @@ let minPlayer;
 let secPlayer;
 let timeTotalPlayer;
 let isApproved;
-
-let isSavedPlayer;
+let isSavedPlayerResult;
 let playerLeft;
-let isSavedSettings;
+
+let warningDuplicateNameTimerId;
+let warningDefaultSettingsTimerId;
+let highScoresBtnElementTimerId;
+
+//* APIs
+let formattedQuestions;
+const questionsOutput = [];
+const urlQuestionsList = 'https://api.npoint.io/ae231eaa6937096d0d3e';
+
+let saveNumber = 0;

@@ -6,7 +6,7 @@ function renderResult(correct) {
 
   [questionWrapperElement, nextBtnElement].forEach((element) => addHide(element));
   [appResultElement, exitBtnElement, restartBtnElement].forEach((element) => removeHide(element));
-  if (isSavedPlayer) {
+  if (isSavedPlayerResult) {
     removeHide(highScoresBtnElement);
   }
   appControlsElement.style.margin = '3rem 0 4rem 0';
@@ -36,7 +36,7 @@ function renderResult(correct) {
     `;
   }
 
-  if (correctAnswer + wrongAnswer === shuffledQuestions.length && isSavedPlayer === false) {
+  if (correctAnswer + wrongAnswer === shuffledQuestions.length && isSavedPlayerResult === false) {
     removeHide(saveBtnElement);
     appResultElement.style.padding = '0 2rem';
 
@@ -50,7 +50,7 @@ function renderResult(correct) {
     `;
   }
 
-  if (correctAnswer + wrongAnswer === shuffledQuestions.length && isSavedPlayer === true) {
+  if (correctAnswer + wrongAnswer === shuffledQuestions.length && isSavedPlayerResult === true) {
     appResultElement.style.padding = '0 2rem';
 
     resultDescriptionElement.innerHTML = `

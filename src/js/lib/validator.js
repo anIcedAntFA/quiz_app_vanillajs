@@ -155,6 +155,50 @@ function isRequired(selector, message) {
   };
 }
 
+function minLength(selector, minLength, message) {
+  return {
+    selector,
+    check: function (value) {
+      return value.length >= minLength
+        ? undefined
+        : message || `Please enter at least ${minLength} characters.`;
+    },
+  };
+}
+
+function maxLength(selector, maxLength, message) {
+  return {
+    selector,
+    check: function (value) {
+      return value.length <= maxLength
+        ? undefined
+        : message || `Please enter maximum ${maxLength} characters.`;
+    },
+  };
+}
+
+function isNumber(selector, message) {
+  return {
+    selector,
+    check: function (value) {
+      const NUMBERS = /^[0-9]+$/;
+      return value.match(NUMBERS) ? undefined : message || 'This field must contain only numbers.';
+    },
+  };
+}
+
+function withinRange(selector, minRange, maxRange, message) {
+  return {
+    selector,
+    check: function (value) {
+      const number = parseInt(value);
+      return !isNaN(number) && number >= minRange && number <= maxRange
+        ? undefined
+        : message || `This field only contain number between ${minRange} and ${maxRange}`;
+    },
+  };
+}
+
 function isEmail(selector, message) {
   return {
     selector,
@@ -195,3 +239,5 @@ function isConfirmed(selector, getConfirmedValue, message) {
 }
 
 export default Validator;
+
+export { isRequired, minLength, maxLength, isNumber, withinRange };

@@ -1,4 +1,6 @@
 import Validator from './lib/validator.js';
+import { isRequired, minLength, maxLength, isNumber, withinRange } from './lib/validator.js';
+
 import {
   showSuccessToastName,
   showSuccessToastSettings,
@@ -17,18 +19,17 @@ function validateHome() {
       minLength('[data-form-control-nickname]', 3),
       maxLength('[data-form-control-nickname]', 12),
     ],
-    onSubmit: function (dataHome) {
+    onSubmit(dataHome) {
       const isDuplicateName = getLocalStoragePlayers().some(
         (player) => player.player_name === dataHome.nickname,
       );
-      console.log(isDuplicateName);
       playerName = dataHome.nickname;
+
       if (isDuplicateName) {
         renderWarningHome();
       } else {
         isSavedPlayerName = true;
         showSuccessToastName();
-        console.log(playerName);
       }
     },
   });
@@ -61,10 +62,11 @@ function validateSettings() {
         'Please select topic of questions you wanna play.',
       ),
     ],
-    onSubmit: function (dataSettings) {
+    onSubmit(dataSettings) {
       console.log(dataSettings);
       isSavedPlayerSettings = true;
       showSuccessToastSettings();
+
       questionAmount = dataSettings.amount;
       questionDifficulty = dataSettings.difficulty;
       questionType = dataSettings.type;
@@ -83,8 +85,9 @@ function validateRules() {
     formGroupSelector: '[data-form-group]',
     errorSelector: '[data-form-message]',
     rules: [isRequired('[data-form-control-rules]', 'Please select your choice.')],
-    onSubmit: function (dataRules) {
+    onSubmit(dataRules) {
       isSavedPlayerRules = true;
+
       if (dataRules.decision === 'agree') {
         isRuleAccepted = true;
         showSuccessToastRules();
@@ -102,63 +105,4 @@ function validateForm() {
   validateRules();
 }
 
-//*----Define Rules-----*//
-// principles:
-// 1. Failure => return error message
-// 2. Success => return undefined
-
-//* Get value from inputElement, insert to function under
-function isRequired(selector, message) {
-  return {
-    selector,
-    check: function (value) {
-      return value ? undefined : message || 'Please fill out this field.';
-    },
-  };
-}
-
-function minLength(selector, minLength, message) {
-  return {
-    selector,
-    check: function (value) {
-      return value.length >= minLength
-        ? undefined
-        : message || `Please enter at least ${minLength} characters.`;
-    },
-  };
-}
-
-function maxLength(selector, maxLength, message) {
-  return {
-    selector,
-    check: function (value) {
-      return value.length <= maxLength
-        ? undefined
-        : message || `Please enter maximum ${maxLength} characters.`;
-    },
-  };
-}
-
-function isNumber(selector, message) {
-  return {
-    selector,
-    check: function (value) {
-      const NUMBERS = /^[0-9]+$/;
-      return value.match(NUMBERS) ? undefined : message || 'This field must contain only numbers.';
-    },
-  };
-}
-
-function withinRange(selector, minRange, maxRange, message) {
-  return {
-    selector,
-    check: function (value) {
-      const number = parseInt(value);
-      return !isNaN(number) && number >= minRange && number <= maxRange
-        ? undefined
-        : message || `This field only contain number between ${minRange} and ${maxRange}`;
-    },
-  };
-}
-
-export { validateHome, validateForm };
+export default validateForm;
