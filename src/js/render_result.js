@@ -1,10 +1,11 @@
 import { addHide, removeHide, clearStatusClass } from './common_function.js';
 import { updateLocalStoragePlayers } from './local_storage.js';
+//***********************************************************************************************************
 
 function renderResult(correct) {
   const playerName = localStorage.getItem('newest-player-name');
 
-  [questionWrapperElement, nextBtnElement].forEach((element) => addHide(element));
+  [appQuestionElement, nextBtnElement].forEach((element) => addHide(element));
   [appResultElement, exitBtnElement, restartBtnElement].forEach((element) => removeHide(element));
   if (isSavedPlayerResult) {
     removeHide(highScoresBtnElement);
@@ -13,13 +14,13 @@ function renderResult(correct) {
 
   clearStatusClass(document.body, correct);
 
-  timeTotalPlayer = minPlayer * 60 + secPlayer;
+  playerTimeTotal = playerTimeMin * 60 + playerTimeSec;
   updateLocalStoragePlayers(
     playerName,
-    score,
-    minPlayer,
-    secPlayer,
-    timeTotalPlayer,
+    playerScore,
+    playerTimeMin,
+    playerTimeSec,
+    playerTimeTotal,
     percentAccuracy,
     isApproved,
   );
@@ -31,7 +32,9 @@ function renderResult(correct) {
     resultDescriptionElement.innerHTML = `
       Oh no!💔💔 You could not finish the Quiz😖, <span>${playerName}</span>
       <br />
-      Press <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--state-neutral)">restart button</span> to play again and try to complete <span style="text-transform: uppercase">all questions</span>. 
+      Press <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--state-neutral)">restart button</span> 
+      to play again and try to complete 
+      <span style="text-transform: uppercase">all questions</span>. 
       Then you are able to get a position on the ⭐Leaderboard⭐.
     `;
   }
@@ -77,8 +80,8 @@ function renderResult(correct) {
           <tr>
             <td>${correctAnswer}</td>
             <td>${wrongAnswer}</td>
-            <td>${score}</td>
-            <td>${minPlayer}:${secPlayer}</td>
+            <td>${playerScore}</td>
+            <td>${playerTimeMin}:${playerTimeSec}</td>
           </tr>
         </tbody>
       </table>

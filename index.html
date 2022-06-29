@@ -19,7 +19,7 @@
       <main class="app__wrapper">
         <!--* Header *-->
         <header class="app__header" data-app-header>
-          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.2</h2>
+          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.6</h2>
           <div class="app__information">
             <i class="fa-solid fa-circle-info" data-app-information-toggle></i>
             <span class="tag tag-blue">Information</span>
@@ -142,7 +142,7 @@
                   <label for="animals">Animals</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="geography" name="category" value="geography" data-form-control-category />
+                  <input type="checkbox" id="geography" name="category" value="geography" checked data-form-control-category />
                   <span class="check-mark" id="geography"></span>
                   <label for="geography">Geography</label>
                 </label>
@@ -152,24 +152,24 @@
                   <label for="sports">Sports</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="history" name="category" value="history" data-form-control-category />
-                  <span class="check-mark" id="history"></span>
-                  <label for="history">History</label>
+                  <input type="checkbox" id="food-drinks" name="category" value="food-drinks" checked data-form-control-category />
+                  <span class="check-mark" id="food-drinks"></span>
+                  <label for="food-drinks">Food/Drinks</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="chemistry" name="category" value="chemistry" checked data-form-control-category />
-                  <span class="check-mark" id="chemistry"></span>
-                  <label for="chemistry">Chemistry</label>
+                  <input type="checkbox" id="science" name="category" value="science" checked data-form-control-category />
+                  <span class="check-mark" id="science"></span>
+                  <label for="science">Science</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="computer" name="category" value="computer" checked data-form-control-category />
-                  <span class="check-mark" id="computer"></span>
-                  <label for="computer">Computer</label>
+                  <input type="checkbox" id="it" name="category" value="it" data-form-control-category />
+                  <span class="check-mark" id="it"></span>
+                  <label for="it">IT</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="math" name="category" value="math" checked data-form-control-category />
-                  <span class="check-mark" id="math"></span>
-                  <label for="math">Math</label>
+                  <input type="checkbox" id="music/books" name="category" value="music/books" checked data-form-control-category />
+                  <span class="check-mark" id="music/books"></span>
+                  <label for="music/books">Music/Books</label>
                 </label>
                 <label class="genre__wrapper">
                   <input type="checkbox" id="general" name="category" value="general" checked data-form-control-category />
@@ -212,11 +212,9 @@
         </section>
 
         <!--* Questions *-->
-        <section class="question__wrapper hide" data-question-wrapper>
-          <div class="question__progress" data-question-progress>
-            
-          </div>
-          <time class="app__timer" data-app-timer>Time left: 1:30</time>
+        <section class="app__questions hide" data-app-questions>
+          <div class="question__progress" data-question-progress></div>
+          <time class="question__timer" data-question-timer></time>
           <p class="question__title" data-question-title></p>
           <div class="question__answers" data-question-answers></div>
           <div class="question__answers-progress" data-question-answers-progress></div>
@@ -310,13 +308,14 @@
           </div>
         </footer>
       </main>
+
       <!--* Toasts *-->
       <div id="toast" data-toast></div>
 
       <!--* Modals *-->
       <div id="modal" data-modal></div>
+
     <script src="./src/js/global_variables.js"></script>
     <script type="module" src="./src/js/index.js"></script>
-
   </body>
 </html>

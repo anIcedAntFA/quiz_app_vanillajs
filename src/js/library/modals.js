@@ -1,4 +1,4 @@
-function modal({ title = '', message = '', type = 'info', keyBtn = false, handleKeyName }) {
+function modal({ title = '', message = '', type = 'info', keyBtn = false, handleKeyBtn }) {
   if (modalWrapperElement) {
     const icons = {
       success: 'fa-solid fa-circle-check',
@@ -14,18 +14,21 @@ function modal({ title = '', message = '', type = 'info', keyBtn = false, handle
     const modalElement = document.createElement('div');
     modalElement.classList.add('modal', `modal--${type}`);
 
-    if (keyBtn === true) {
-      modalElement.innerHTML = `
-        <div class="modal__header">
-          <div class="modal__title-icon">
-            <i class="${icon}"></i>
-          </div>
-          <div class="modal__title">${title}</div>
-          <div class="modal__close-icon" data-modal-close-icon>
-            <i class="fa-solid fa-xmark"></i>
-          </div>
+    modalElement.innerHTML = `
+      <div class="modal__header">
+        <div class="modal__title-icon">
+          <i class="${icon}"></i>
         </div>
-        <div class="modal__message">${message}</div>
+        <div class="modal__title">${title}</div>
+        <div class="modal__close-icon" data-modal-close-icon>
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+      </div>
+      <div class="modal__message">${message}</div>
+    `;
+
+    if (keyBtn === true) {
+      modalElement.innerHTML += `
         <div class="btn__wrapper">
           <button class="modal__close-btn btn btn-agree" data-modal-agree-btn>
             Agree
@@ -36,17 +39,7 @@ function modal({ title = '', message = '', type = 'info', keyBtn = false, handle
         </div>
       `;
     } else {
-      modalElement.innerHTML = `
-        <div class="modal__header">
-          <div class="modal__title-icon">
-            <i class="${icon}"></i>
-          </div>
-          <div class="modal__title">${title}</div>
-          <div class="modal__close-icon" data-modal-close-icon>
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-        </div>
-        <div class="modal__message">${message}</div>
+      modalElement.innerHTML += `
         <button class="modal__close-btn btn btn-close" data-modal-close-btn>
           Close
         </button>
@@ -76,7 +69,7 @@ function modal({ title = '', message = '', type = 'info', keyBtn = false, handle
       }
 
       if (event.target.closest('[data-modal-agree-btn]')) {
-        handleKeyName && handleKeyName();
+        handleKeyBtn && handleKeyBtn();
         modalWrapperElement.removeChild(modalOverlayElement);
       }
     });

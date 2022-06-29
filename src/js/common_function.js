@@ -1,4 +1,5 @@
 import { setLocalStoragePlayers } from './local_storage.js';
+//************************************************************
 
 function resetSettingsState() {
   isSavedPlayerName = false;
@@ -8,19 +9,18 @@ function resetSettingsState() {
 }
 
 function updateState() {
-  shuffledQuestions = questionsOutput.sort(() => Math.random() - 0.5);
   currentQuestionIndex = 0;
   correctAnswer = 0;
   wrongAnswer = 0;
   percentAccuracy = 0;
-  score = 0;
-  minPlayer = 0;
-  secPlayer = 0;
-  timeTotalPlayer = 0;
-  isApproved = false;
-  isSavedPlayerResult = false;
-  playerLeft = false;
+  playerScore = 0;
+  playerTimeMin = 0;
+  playerTimeSec = 0;
+  playerTimeTotal = 0;
   saveNumber = 0;
+  isSavedPlayerResult = false;
+  isApproved = false;
+  playerLeft = false;
 
   const newestPlayerName = playerName;
   localStorage.setItem('newest-player-name', newestPlayerName);
@@ -62,6 +62,23 @@ function sortByName(element1, element2) {
   return 0;
 }
 
+function getSettingsValue() {
+  const questionAmountDefault = inputAmountElement.value;
+  const questionDifficultyDefault = inputDifficultyElement.value;
+  const questionTypeDefault = inputTypeElement.value;
+  const questionCategoryDefault = Array.from(inputCategoryElements)
+    .filter((input) => input.matches(':checked'))
+    .map((input) => input.value);
+
+  const questionSettingsValue = {
+    questionAmount: questionAmount ?? questionAmountDefault,
+    questionDifficulty: questionDifficulty ?? questionDifficultyDefault,
+    questionType: questionType ?? questionTypeDefault,
+    questionCategory: questionCategory ?? questionCategoryDefault,
+  };
+  return questionSettingsValue;
+}
+
 const intersectionArray = (array1, array2) => array1.filter((item) => array2.includes(item));
 
 const uniqueArray = (array) => [...new Set(array)];
@@ -95,4 +112,5 @@ export {
   clearStatusClass,
   resetState,
   sortByName,
+  getSettingsValue,
 };

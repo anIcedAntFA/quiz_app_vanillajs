@@ -1,12 +1,24 @@
+import { getSettingsValue } from './common_function.js';
 import renderResult from './render_result.js';
+//************************************************************************
+
+function setTimer() {
+  timer = getSettingsValue().questionAmount * TIME_PER_QUESTION;
+  timeMinutes = Math.floor(timer / 60);
+  timeSeconds = timer % 60;
+}
+
+function renderTimer() {
+  minutes = Math.floor(timer / 60);
+  seconds = timer % 60;
+  questionTimerElement.innerHTML = `Time left: ${minutes}:${seconds}`;
+}
 
 function startCountdown() {
   timerId = setInterval(() => {
     if (timer > 0) {
       timer--;
-      min = Math.floor(timer / 60);
-      sec = timer % 60;
-      appTimerElement.innerHTML = `Time left: ${min}:${sec}`;
+      renderTimer();
     } else {
       saveTimePlayer();
       updateTimer();
@@ -16,24 +28,24 @@ function startCountdown() {
 }
 
 function updateTimer() {
+  timer = getSettingsValue().questionAmount * TIME_PER_QUESTION;
   clearInterval(timerId);
-  timer = 90;
-  min = Math.floor(timer / 60);
-  sec = timer % 60;
-  appTimerElement.innerHTML = `Time left: ${min}:${sec}`;
+  renderTimer();
 }
 
 function saveTimePlayer() {
-  minPlayer = TIME_MINUTE - min;
-  secPlayer = TIME_SECOND - sec;
+  setTimer();
 
-  if (secPlayer > 0) {
-    minPlayer = TIME_MINUTE - min;
-    secPlayer = TIME_SECOND - sec;
+  playerTimeMin = timeMinutes - minutes;
+  playerTimeSec = timeSeconds - seconds;
+
+  if (playerTimeSec > 0) {
+    playerTimeMin = timeMinutes - minutes;
+    playerTimeSec = timeSeconds - seconds;
   } else {
-    minPlayer = minPlayer - 1;
-    secPlayer = secPlayer + 60;
+    playerTimeMin = playerTimeMin - 1;
+    playerTimeSec = playerTimeSec + 60;
   }
 }
 
-export { startCountdown, updateTimer, saveTimePlayer };
+export { setTimer, renderTimer, startCountdown, updateTimer, saveTimePlayer };

@@ -1,13 +1,14 @@
-import Validator from './lib/validator.js';
-import { isRequired, minLength, maxLength, isNumber, withinRange } from './lib/validator.js';
+import Validator from './library/validator.js';
+import { isRequired, minLength, maxLength, isNumber, withinRange } from './library/validator.js';
 
 import {
   showSuccessToastName,
   showSuccessToastSettings,
   showSuccessToastRules,
 } from './handle_toasts.js';
-import { renderWarningHome, renderWarningRules } from './handle_modals.js';
+import { renderWarningDuplicateName, renderWarningRules } from './handle_modals.js';
 import { getLocalStoragePlayers } from './local_storage.js';
+//************************************************************************************************************
 
 function validateHome() {
   Validator({
@@ -26,7 +27,7 @@ function validateHome() {
       playerName = dataHome.nickname;
 
       if (isDuplicateName) {
-        renderWarningHome();
+        renderWarningDuplicateName();
       } else {
         isSavedPlayerName = true;
         showSuccessToastName();
@@ -63,18 +64,13 @@ function validateSettings() {
       ),
     ],
     onSubmit(dataSettings) {
-      console.log(dataSettings);
       isSavedPlayerSettings = true;
-      showSuccessToastSettings();
-
       questionAmount = dataSettings.amount;
       questionDifficulty = dataSettings.difficulty;
       questionType = dataSettings.type;
       questionCategory = dataSettings.category;
-      console.log(questionAmount);
-      console.log(questionDifficulty);
-      console.log(questionType);
-      console.log(questionCategory);
+
+      showSuccessToastSettings();
     },
   });
 }

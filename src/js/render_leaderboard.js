@@ -1,8 +1,12 @@
 import { addHide, removeHide, sortByName } from './common_function.js';
 import { getLocalStoragePlayers } from './local_storage.js';
+//**********************************************************************
 
 function renderLeaderboard() {
-  const currentLocalStoragePlayersLength = getLocalStoragePlayers().length;
+  const approvedPlayers = getLocalStoragePlayers().filter((player) => player.is_approved === true);
+  const currentApprovedPlayersLength = approvedPlayers.length;
+  console.log(currentApprovedPlayersLength);
+
   [
     appHomeElement,
     appResultElement,
@@ -22,8 +26,7 @@ function renderLeaderboard() {
   appControlsElement.style.flexDirection = 'row';
   appControlsElement.style.margin = '4rem 0';
 
-  const players = getLocalStoragePlayers().filter((player) => player.is_approved === true);
-  players.sort((element1, element2) => {
+  approvedPlayers.sort((element1, element2) => {
     return (
       //* case 1: different scores => sort by scores
       element2.player_score - element1.player_score ||
@@ -42,15 +45,10 @@ function renderLeaderboard() {
     );
   });
 
-  const findDuplicateNumber = (array) =>
-    array.filter((item, index) => array.indexOf(item) !== index);
-
-  count = 0;
-  const stringHtml = players.map((player, index) => {
-    count++;
+  const stringHtml = approvedPlayers.map((player, index) => {
     return `
       <tr>
-        <td>${count}</td>
+        <td>${index + 1}</td>
         <td>${player.player_name}</td>
         <td>${player.player_score}</td>
         <td>${player.player_time_min}:${player.player_time_sec}</td>
@@ -74,15 +72,20 @@ function renderLeaderboard() {
     </table>
   `;
 
-  if (currentLocalStoragePlayersLength === 1) {
+  if (currentApprovedPlayersLength === 1) {
     leaderboardDescriptionElement.innerHTML = `
-    Well done <span>🔥${players[0].player_name}🔥</span> 😍‼️ 
-    You are the <span>first</span> to get a position on the <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
+    Well done 
+    <span>🔥${approvedPlayers[0].player_name}🔥</span> 😍‼️ 
+    You are the 
+    <span>first</span> 
+    to get a position on the 
+    <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
     Please invite your friends to play together ☺️.
   `;
-  } else if (currentLocalStoragePlayersLength > 1) {
+  } else if (currentApprovedPlayersLength > 1) {
     leaderboardDescriptionElement.innerHTML = `
-      Well done guys 😍‼️ Especially <span>🔥${players[0].player_name}🔥</span>,
+      Well done guys 😍‼️ Especially 
+      <span>🔥${approvedPlayers[0].player_name}🔥</span>,
       <br />
       you have reached a <span>top 1</span> ranking 🎉🎉🎉.
     `;
@@ -90,8 +93,8 @@ function renderLeaderboard() {
     leaderboardDescriptionElement.innerHTML = `
       Oh well 👻‼️ No one is currently on the Leaderboard 😅,
       <br />
-      I bet you are smart 🐧, follow the instructions to conquer this game and 
-      be the first to put your name on the <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
+      I bet you are smart 🐧, follow the instructions to conquer this game and be the first to put your name on the 
+      <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.
     `;
   }
 }

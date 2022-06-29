@@ -1,8 +1,8 @@
 import { removeHide, setStatusClass, resetState } from './common_function.js';
 import { updateTimer, saveTimePlayer } from './handle_timer.js';
 import renderResult from './render_result.js';
-
 //****************************************************************************************************** */
+
 //* Create question progress bar
 const questionProgressTextElement = document.createElement('p');
 questionProgressTextElement.classList.add('progress__text');
@@ -142,17 +142,18 @@ function renderQuestion(questionObject) {
 function selectAnswer(event) {
   const selectedAnswer = event.target;
   const correctDataAttribute = selectedAnswer.dataset.correct;
+
   handleCorrectAnswer(correctDataAttribute);
-  handleDataAttribute(correctDataAttribute);
+  handleQuestionsAnswer(correctDataAttribute);
 }
 
 function handleCorrectAnswer(correct) {
   if (correct === 'true') {
     correctAnswer++;
-    score += POINT_PLUS;
+    playerScore += POINT_PLUS;
   } else {
     wrongAnswer++;
-    score -= POINT_MINUS;
+    playerScore -= POINT_MINUS;
   }
 
   setStatusClass(document.body, correct);
@@ -163,7 +164,7 @@ function handleCorrectAnswer(correct) {
   });
 }
 
-function handleDataAttribute() {
+function handleQuestionsAnswer() {
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
     removeHide(nextBtnElement);
     appControlsElement.style.margin = '0';

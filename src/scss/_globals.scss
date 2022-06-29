@@ -51,7 +51,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--state-neutral);
+  color: var(--blue);
 
   &:hover {
     opacity: 0.8;
@@ -90,8 +90,8 @@ td {
 }
 
 .app__wrapper {
-  max-width: 76rem;
-  padding: 2.4rem 3.2rem;
+  max-width: 80rem;
+  padding: 3.2rem;
   border: 4px solid var(--orange);
   border-radius: var(--border-radius-primary);
 

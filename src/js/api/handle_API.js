@@ -1,23 +1,8 @@
-function getSettingsValue() {
-  const questionAmountDefault = inputAmountElement.value;
-  const questionDifficultyDefault = inputDifficultyElement.value;
-  const questionTypeDefault = inputTypeElement.value;
-  const questionCategoryDefault = Array.from(inputCategoryElements)
-    .filter((input) => input.matches(':checked'))
-    .map((input) => input.value);
-
-  const questionSettingsValue = {
-    questionAmount: questionAmount ?? questionAmountDefault,
-    questionDifficulty: questionDifficulty ?? questionDifficultyDefault,
-    questionType: questionType ?? questionTypeDefault,
-    questionCategory: questionCategory ?? questionCategoryDefault,
-  };
-
-  return questionSettingsValue;
-}
+import { getSettingsValue } from '../common_function.js';
+//********************************************************
 
 function handleLoadedQuestions(loadedQuestions) {
-  //* Filter questions in turn by difficulty & type
+  //* Filter questions in turn by difficulty, type & category
   if (getSettingsValue().questionType !== 'random') {
     formattedQuestions = loadedQuestions.filter(
       (question) =>
@@ -25,7 +10,7 @@ function handleLoadedQuestions(loadedQuestions) {
         question.type.toLowerCase() === getSettingsValue().questionType &&
         getSettingsValue().questionCategory.includes(question.category.toLowerCase()),
     );
-    //* if type is 'random' => no need filtering by type (get all)
+    //* if type is 'random' => no need filtering by type, filter by difficulty & category
   } else {
     formattedQuestions = loadedQuestions.filter(
       (question) =>
@@ -33,13 +18,16 @@ function handleLoadedQuestions(loadedQuestions) {
         getSettingsValue().questionCategory.includes(question.category.toLowerCase()),
     );
   }
-  console.log(formattedQuestions);
-
-  //* Create final question list, ready to render
+  //* Continue filter by amount
   for (let i = 0; i < getSettingsValue().questionAmount; ++i) {
-    questionsOutput.push(formattedQuestions[Math.floor(Math.random() * formattedQuestions.length)]);
+    do {
+      questionIndex2 = Math.floor(Math.random() * formattedQuestions.length);
+    } while (questionIndex1.includes(questionIndex2));
+    questionIndex1.push(questionIndex2);
+
+    questionsOutput.push(formattedQuestions[questionIndex2]);
   }
-  console.log(questionsOutput);
+
   return questionsOutput;
 }
 
@@ -47,7 +35,7 @@ async function handleApiQuestions() {
   try {
     const response = await fetch(urlQuestionsList);
     const loadedQuestions = await response.json();
-    handleLoadedQuestions(loadedQuestions);
+    return loadedQuestions;
   } catch (error) {
     console.log(error);
   }
@@ -61,3 +49,5 @@ async function handleApiQuestions() {
 // }
 
 export default handleApiQuestions;
+
+export { handleLoadedQuestions };

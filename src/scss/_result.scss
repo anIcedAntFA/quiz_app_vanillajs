@@ -32,8 +32,11 @@
 
 .result__description {
   grid-area: result-description;
+  justify-self: center;
 
+  width: 80%;
   margin-top: 1rem;
+
   text-align: center;
   color: var(--text-color);
 

@@ -1,10 +1,11 @@
-import toast from './lib/toasts.js';
+import toast from './library/toasts.js';
+//***************************************
 
 const showErrorToastName = () => {
   toast({
     title: 'Error!!',
     message: `
-      You haven't submit your nickname, press the 
+      You haven't saved your nickname, press the 
       <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">save button</span> 
       and done it.
     `,
@@ -15,7 +16,7 @@ const showErrorToastName = () => {
 const showSuccessToastName = () => {
   toast({
     title: 'Successfully!!',
-    message: 'You have successfully saved your nickname.',
+    message: `Welcome to the Quiz, ${playerName}.`,
     type: 'success',
   });
 };

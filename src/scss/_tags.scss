@@ -9,6 +9,18 @@
   text-transform: uppercase;
 }
 
+.tag-sm {
+  margin: 4px 1.6px;
+  padding: 0 6px;
+  display: inline-block;
+  border-radius: 4px;
+
+  font-family: 'cubano', sans-serif;
+  font-size: var(--font-size-s);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
 .tag-blue {
   background: var(--blue);
   color: var(--gray0);
@@ -26,7 +38,7 @@
 
 .tag-yellow {
   background: var(--yellow);
-  color: var(--gray0);
+  color: var(--gray5);
 }
 
 .tag-purple {
@@ -37,4 +49,45 @@
 .tag-pink {
   background: var(--pink);
   color: var(--gray0);
+}
+
+.tag-sass {
+  background: var(--pink-sass);
+  color: var(--gray0);
+}
+
+.tag-graphql {
+  background: var(--pink-graphql);
+  color: var(--gray0);
+}
+
+.tag-react {
+  background: var(--blue-react);
+  color: var(--gray0);
+}
+
+.tag-typescript {
+  background: var(--blue-typescript);
+  color: var(--gray0);
+}
+
+.tag-tailwind-css {
+  background: var(--blue-tailwind-css);
+  color: var(--gray0);
+}
+
+.tag-nextjs,
+.tag-apollo-client {
+  background: var(--gray5);
+  color: var(--gray0);
+}
+
+.tag-js {
+  background: var(--yellow-js);
+  color: var(--gray4);
+}
+
+.tag-vanilla {
+  background: var(--yellow-vanilla);
+  color: var(--gray4);
 }

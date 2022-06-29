@@ -1,12 +1,14 @@
-.question__wrapper {
+.app__questions {
   display: grid;
   grid-gap: 3.2rem;
+  grid-template-columns: 1fr 1.4fr;
   grid-template-areas:
     'progress timer'
     'title title'
     'answer answer'
     'answer-progress answer-progress';
   align-items: center;
+
   margin-top: 4rem;
 
   &.hide {
@@ -40,12 +42,12 @@
   background-color: var(--blue-light);
 }
 
-.app__timer {
+.question__timer {
   grid-area: timer;
   justify-self: end;
 
   min-width: 18rem;
-  padding: 1rem;
+  padding: 1.3rem 1.6rem;
   border-radius: 6px;
 
   font-family: 'fira-code-semi-bold', sans-serif;
