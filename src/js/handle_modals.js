@@ -82,11 +82,12 @@ const renderWarningDuplicateName = () => {
     message: `
       Keep calm Bro!
       <br>
-      This nickname already exists on the Leaderboard 💔. if it is yours, you could press the 
+      This username/nickname already exists in our database. 💔. If you have created this username from your last play,  
+      you could opt to have it reset to your latest result by pressing the 
       <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> 
-      to overwrite and save it.
+      and save a new one.
       <br>
-      If not, please turn off this pop-up window, then type an another cool 💓nickname💓.
+      If not, please close this pop-up, then type an another cool 💓nickname💓.
       <br>
       <br>
       Sorry for the inconvenience 😇.
@@ -140,7 +141,7 @@ const renderWarningRules = () => {
       <span style="font-family: 'fira-code-bold', sans-serif;">'disagree'</span>, 
       you could not play the game. 
       <br>
-      Turn off this pop-up window, read the rules and select 
+      Please close this pop-up, read the rules and select 
       <span style="font-family: 'fira-code-bold', sans-serif;">'agree'</span>, 
       then press the 
       <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--blue)">start button</span> 
