@@ -26,8 +26,8 @@ const renderAppInformation = () => {
             <span class="tag-sm tag-nextjs">Next.js</span>, 
             <span class="tag-sm tag-typescript">TypeScript</span>, 
             <span class="tag-sm tag-graphql">GraphQL</span>, 
-            <span class="tag-sm tag-apollo-client">Apollo</span>, 
-            <span class="tag-sm tag-tailwind-css">Tailwind CSS</span>,... 
+            <span class="tag-sm tag-firebase">Firebase</span>, 
+            <span class="tag-sm tag-tailwind-css">Tailwind CSS</span>. 
             Hold your horses😆, these new technologies will have subsequent versions with better features and optimization 🚀🚀🚀.
           </p>
           <p>
@@ -38,7 +38,7 @@ const renderAppInformation = () => {
         </div>
       </div>
       <br>
-      If you want to view the source code, 
+      If you would like to view the source code, 
       <a href="https://github.com/anIcedAntFA/quiz_app_version_1.2--vanillaJS" target="_blank">
         <i class="fa-solid fa-file-code"></i>
         <span>click here</span>
@@ -46,7 +46,7 @@ const renderAppInformation = () => {
       </a>
       <br>
       Thank you for experiencing the application. If you have any questions or ideas, please send them to us at
-      <strong>anicedfaant@gmail.com</strong>.
+      <a href="mailto:anicedfaant@gmail.com">anicedfaant@gmail.com</a>.
       <br>
       <br>
       I would like to thank
@@ -66,7 +66,8 @@ const renderErrorAppLanguage = () => {
   modal({
     title: 'Feature Error',
     message: `
-      This feature is <span style="font-family: 'fira-code-bold', sans-serif">under construction</span> 🪛🛠️⚙️. 
+      This feature is 
+      <span style="font-family: 'fira-code-bold', sans-serif">under development</span> 🪛🛠️⚙️. 
       We will finish it as soon as possible. 
       <br/>
       <br/>
@@ -139,7 +140,7 @@ const renderWarningRules = () => {
       <br>
       If you choose 
       <span style="font-family: 'fira-code-bold', sans-serif;">'disagree'</span>, 
-      you could not play the game. 
+      you could not start the game. 
       <br>
       Please close this pop-up, read the rules and select 
       <span style="font-family: 'fira-code-bold', sans-serif;">'agree'</span>, 

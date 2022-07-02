@@ -12,8 +12,7 @@ import { setNextQuestion } from './render_questions_answers.js';
 import { updateLocalStoragePlayers } from './local_storage.js';
 import renderResult from './render_result.js';
 import renderLeaderboard from './render_leaderboard.js';
-import { handleLoadedQuestions } from './api/handle_API.js';
-import handleApiQuestions from './api/handle_API.js';
+import updateShuffledQuestions from './api/handle_API.js';
 
 import {
   showErrorToastName,
@@ -27,7 +26,7 @@ import {
 } from './handle_modals.js';
 //************************************************************************************************************
 
-async function handleContinueButton() {
+function handleContinueButton() {
   if (isSavedPlayerName && isSavedPlayerSettings) {
     [appHomeElement, highScoresBtnElement, continueBtnElement, settingBtnElement].forEach(
       (element) => addHide(element),
@@ -36,11 +35,8 @@ async function handleContinueButton() {
     appControlsElement.style.flexDirection = 'row';
 
     renderInfoList();
+    updateShuffledQuestions();
     renderTimer();
-
-    const loadedQuestions = await handleApiQuestions();
-    handleLoadedQuestions(loadedQuestions);
-    shuffledQuestions = questionsOutput.sort(() => Math.random() - 0.5);
   } else if (!isSavedPlayerName) {
     showErrorToastName();
   } else if (!isSavedPlayerSettings) {
@@ -112,6 +108,7 @@ function restartGame() {
   clearTimeout(highScoresBtnElementTimerId);
 
   updateState();
+  updateShuffledQuestions();
   setNextQuestion();
 
   timer = getSettingsValue().questionAmount * TIME_PER_QUESTION;

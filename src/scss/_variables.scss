@@ -43,8 +43,7 @@ $colors: (
   --green-blur: hsl(154, 91%, 98%);
   --blue-blur: hsl(218, 96%, 96%);
   --yellow-blur: hsl(48, 100%, 98%);
-  --yellow-js: hsl(52, 84%, 63%);
-  --yellow-vanilla: hsl(55, 100%, 86%);
+
   --white: hsl(0, 0%, 100%);
   --gray0: hsl(0, 0%, 97%);
   --gray1: hsl(212, 22%, 88%);
@@ -60,12 +59,14 @@ $colors: (
   --green-nodejs: hsl(118, 40%, 38%);
   --pink-graphql: hsl(320, 77%, 55%);
   --pink-sass: hsl(331, 50%, 60%);
+  --orange-firebase: hsl(30, 92%, 51%);
+  --yellow-js: hsl(52, 84%, 63%);
+  --yellow-vanilla: hsl(55, 100%, 86%);
   --gray-github: hsl(207, 11%, 16%);
 
   --state-neutral: var(--blue);
   --state-correct: var(--green);
   --state-wrong: var(--red);
-  --state-warning: var(--orange);
 
   --font-size-s: 1.3rem;
   --font-size-body: 1.6rem;

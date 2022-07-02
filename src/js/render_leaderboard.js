@@ -91,7 +91,7 @@ function renderLeaderboard() {
     `;
   } else {
     leaderboardDescriptionElement.innerHTML = `
-      Oh well 👻‼️ No one is currently on the Leaderboard 😅,
+      Well 👻‼️ No one is currently on the Leaderboard 😅,
       <br />
       I bet you are smart 🐧, follow the instructions to conquer this game and be the first to put your name on the 
       <span style="font-family: 'fira-code-bold', sans-serif; text-transform: capitalize; color: var(--orange)">⭐Leaderboard⭐</span> 🚀🚀🚀.

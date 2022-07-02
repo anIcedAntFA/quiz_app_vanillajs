@@ -60,9 +60,9 @@ const toastWrapperElement = getElement('[data-toast]');
 const modalWrapperElement = getElement('[data-modal]');
 
 //* CONSTANTS
-const TIME_PER_QUESTION = 6;
+const TIME_PER_QUESTION = 10;
 const POINT_PLUS = 5;
-const POINT_MINUS = 3;
+const POINT_MINUS = 2;
 const ONE_TIME = 1;
 
 //* HOME

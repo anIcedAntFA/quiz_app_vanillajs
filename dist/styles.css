@@ -254,7 +254,7 @@ td {
 }
 
 .app__wrapper {
-  max-width: 80rem;
+  max-width: 84rem;
   padding: 3.2rem;
   border: 4px solid var(--orange);
   border-radius: var(--border-radius-primary);
@@ -335,8 +335,6 @@ td {
   --green-blur: hsl(154, 91%, 98%);
   --blue-blur: hsl(218, 96%, 96%);
   --yellow-blur: hsl(48, 100%, 98%);
-  --yellow-js: hsl(52, 84%, 63%);
-  --yellow-vanilla: hsl(55, 100%, 86%);
   --white: hsl(0, 0%, 100%);
   --gray0: hsl(0, 0%, 97%);
   --gray1: hsl(212, 22%, 88%);
@@ -351,11 +349,13 @@ td {
   --green-nodejs: hsl(118, 40%, 38%);
   --pink-graphql: hsl(320, 77%, 55%);
   --pink-sass: hsl(331, 50%, 60%);
+  --orange-firebase: hsl(30, 92%, 51%);
+  --yellow-js: hsl(52, 84%, 63%);
+  --yellow-vanilla: hsl(55, 100%, 86%);
   --gray-github: hsl(207, 11%, 16%);
   --state-neutral: var(--blue);
   --state-correct: var(--green);
   --state-wrong: var(--red);
-  --state-warning: var(--orange);
   --font-size-s: 1.3rem;
   --font-size-body: 1.6rem;
   --font-size-med: 2.4rem;
@@ -436,7 +436,7 @@ td {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 1rem;
-  width: 19rem;
+  width: 20rem;
   height: 6rem;
   font-family: 'cubano', sans-serif;
   font-size: var(--font-size-med);
@@ -644,6 +644,11 @@ td {
   color: var(--gray0);
 }
 
+.tag-firebase {
+  background: var(--orange-firebase);
+  color: var(--gray0);
+}
+
 .tag-js {
   background: var(--yellow-js);
   color: var(--gray4);
@@ -676,6 +681,13 @@ td {
   text-transform: uppercase;
   background-color: var(--orange);
   color: var(--gray0);
+}
+
+.header__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 4rem;
 }
 
 .app__information,
@@ -1533,7 +1545,6 @@ td {
       grid-template-areas: 'copyright github';
   margin-top: 4.8rem;
   text-align: center;
-  font-size: var(--font-size-s);
   letter-spacing: normal;
   color: var(--text-color);
 }
@@ -1553,7 +1564,7 @@ td {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 0.6rem;
+  gap: 8px;
 }
 
 .footer__copyright > span {
@@ -1580,8 +1591,8 @@ td {
   grid-area: github;
   -ms-grid-column-align: end;
       justify-self: end;
-  padding-right: 2rem;
-  line-height: 2.4rem;
+  padding-right: 8px;
+  line-height: 2.8rem;
 }
 
 .footer__github-link a span {

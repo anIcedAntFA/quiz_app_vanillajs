@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Quiz App 1.0</title>
+    <title>Quiz App Version 1.65</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -19,19 +19,21 @@
       <main class="app__wrapper">
         <!--* Header *-->
         <header class="app__header" data-app-header>
-          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.6</h2>
-          <div class="app__information">
-            <i class="fa-solid fa-circle-info" data-app-information-toggle></i>
-            <span class="tag tag-blue">Information</span>
-          </div>
-          <div class="app__language">
-            <i class="fa-solid fa-language" data-app-language-toggle></i>
-            <span class="tag tag-green">Vietnamese</span>
-          </div>
-          <div class="app__theme">
-            <i class="fa-solid fa-moon" data-app-dark-theme-toggle></i>
-            <span class="tag tag-purple" data-app-dark-theme-label>Dark</span>
-          </div>
+          <h2 class="header__title" data-app-heading>Javascript Quiz App 1.65</h2>
+          <nav class="header__actions">
+            <div class="app__information">
+              <i class="fa-solid fa-circle-info" data-app-information-toggle></i>
+              <span class="tag tag-blue">Information</span>
+            </div>
+            <div class="app__language">
+              <i class="fa-solid fa-language" data-app-language-toggle></i>
+              <span class="tag tag-green">Vietnamese</span>
+            </div>
+            <div class="app__theme">
+              <i class="fa-solid fa-moon" data-app-dark-theme-toggle></i>
+              <span class="tag tag-purple" data-app-dark-theme-label>Dark</span>
+            </div>
+          </nav>
         </header>
 
         <!--* Home *-->
@@ -162,12 +164,12 @@
                   <label for="science">Science</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="it" name="category" value="it" data-form-control-category />
+                  <input type="checkbox" id="it" name="category" value="it" checked data-form-control-category />
                   <span class="check-mark" id="it"></span>
                   <label for="it">IT</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="music/books" name="category" value="music/books" checked data-form-control-category />
+                  <input type="checkbox" id="music/books" name="category" value="music/books" data-form-control-category />
                   <span class="check-mark" id="music/books"></span>
                   <label for="music/books">Music/Books</label>
                 </label>
@@ -316,6 +318,7 @@
       <div id="modal" data-modal></div>
 
     <script src="./src/js/global_variables.js"></script>
+    <script src="./src/js/data/dummy_data.js"></script>
     <script type="module" src="./src/js/index.js"></script>
   </body>
 </html>

@@ -48,6 +48,11 @@ async function handleApiQuestions() {
 //     .catch((error) => console.log(error));
 // }
 
-export default handleApiQuestions;
+async function updateShuffledQuestions() {
+  questionsOutput = [];
+  const loadedQuestions = await handleApiQuestions();
+  handleLoadedQuestions(loadedQuestions);
+  shuffledQuestions = questionsOutput.sort(() => Math.random() - 0.5);
+}
 
-export { handleLoadedQuestions };
+export default updateShuffledQuestions;

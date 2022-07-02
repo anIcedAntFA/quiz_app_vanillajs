@@ -19,6 +19,11 @@
   color: var(--gray0);
 }
 
+.header__actions {
+  display: flex;
+  gap: 4rem;
+}
+
 .app__information,
 .app__language,
 .app__theme {
