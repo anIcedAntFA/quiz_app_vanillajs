@@ -39,7 +39,7 @@
         <!--* Home *-->
         <section class="app__home" data-app-home>
           <p class="home__title--home">Welcome to the Quiz! 🐳</p>
-          <form id="form__home" data-form-home>
+          <form data-form-home>
             <div class=" form__group--home" data-form-group>
               <label for="nickname" class=" form__label--home"
                 >Do you have a <span>🔥Cool Nickname🔥</span></label
@@ -109,7 +109,7 @@
                   <option value="">--- Difficulty ---</option>
                   <option value="easy">------ Easy ------</option>
                   <option value="medium" selected="selected">----- Medium -----</option>
-                  <option value="hard">------ Hard ------</option>
+                  <option disabled value="hard">------ Hard ------</option>
                 </select>
               </div>
               <span class="form__message" data-form-message></span>
@@ -149,12 +149,12 @@
                   <label for="geography">Geography</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="sports" name="category" value="sports" data-form-control-category />
+                  <input type="checkbox" id="sports" name="category" value="sports" disabled data-form-control-category />
                   <span class="check-mark" id="sports"></span>
                   <label for="sports">Sports</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="food-drinks" name="category" value="food-drinks" checked data-form-control-category />
+                  <input type="checkbox" id="food-drinks" name="category" value="food-drinks" disabled data-form-control-category />
                   <span class="check-mark" id="food-drinks"></span>
                   <label for="food-drinks">Food/Drinks</label>
                 </label>
@@ -169,7 +169,7 @@
                   <label for="it">IT</label>
                 </label>
                 <label class="genre__wrapper">
-                  <input type="checkbox" id="music/books" name="category" value="music/books" data-form-control-category />
+                  <input type="checkbox" id="music/books" name="category" value="music/books" disabled data-form-control-category />
                   <span class="check-mark" id="music/books"></span>
                   <label for="music/books">Music/Books</label>
                 </label>
@@ -190,11 +190,11 @@
           <hr />
           <div class="rules__list" data-rules-list></div>
           <hr />
-          <form id="form__rules" data-form-rules>
+          <form class="form__rules" data-form-rules>
             <div class="form__group rules__decision" data-form-group>
-              <label for="rules__decision" class="form__label--rules"
-                >Do you agree or disagree with the Rule above?</label
-              >
+              <label for="rules__decision" class="form__label--rules">
+                Do you agree or disagree with the Rule above?
+              </label>
               <input type="radio" name="decision" value="disagree" id="dot-1" data-form-control-rules />
               <input type="radio" name="decision" value="agree" id="dot-2" data-form-control-rules />
               <div class="decision__category">

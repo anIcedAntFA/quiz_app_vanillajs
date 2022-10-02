@@ -435,7 +435,7 @@ td {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 1rem;
+  gap: 1.4rem;
   width: 20rem;
   height: 6rem;
   font-family: 'cubano', sans-serif;
@@ -902,7 +902,7 @@ td {
           align-items: center;
   gap: 2rem;
   width: 100%;
-  padding: 1rem 1.6rem 0 1.6rem;
+  padding: 2rem 2rem 0 2rem;
   border: 3px solid var(--pink);
   border-radius: var(--border-radius-primary);
   border-bottom-width: 6px;
@@ -970,7 +970,7 @@ td {
 }
 
 .form__control {
-  width: 32rem;
+  width: 35rem;
   height: 5.2rem;
   padding: 0.8rem 1.2rem;
   border: var(--form-border);
@@ -998,8 +998,8 @@ td {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 1.2rem;
-  margin: 1.6rem 0 1rem 0;
+  gap: 1.6rem;
+  margin: 2rem 0 1rem 0;
 }
 
 .genre__wrapper {
@@ -1094,7 +1094,7 @@ td {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   margin-top: 4rem;
   padding: 0 2rem;
   color: var(--text-color);
@@ -1115,7 +1115,7 @@ td {
 }
 
 .rules__title {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   min-width: 40rem;
   width: 80%;
   padding: 1rem 1.2rem;
@@ -1158,7 +1158,10 @@ td {
   color: var(--orange);
 }
 
-/* Gender Details */
+.form__rules {
+  margin: 1.6rem 0;
+}
+
 .rules__decision {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1192,7 +1195,7 @@ td {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 55%;
+  width: 50%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }

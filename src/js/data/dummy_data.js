@@ -2845,10 +2845,11 @@ const data = [
   },
 ];
 
+console.log(data);
+
 const a = data.filter(
   (question) =>
-    question.category.toLowerCase() === 'it' &&
-    question.difficulty.toLowerCase() === 'easy' &&
-    question.type.toLowerCase() === 'true / false',
+    question.category.toLowerCase() === 'it' && question.difficulty.toLowerCase() === 'hard',
+  // question.type.toLowerCase() === 'true / false',
 );
 console.log(a);

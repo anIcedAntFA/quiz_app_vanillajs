@@ -5,7 +5,6 @@ import { getLocalStoragePlayers } from './local_storage.js';
 function renderLeaderboard() {
   const approvedPlayers = getLocalStoragePlayers().filter((player) => player.is_approved === true);
   const currentApprovedPlayersLength = approvedPlayers.length;
-  console.log(currentApprovedPlayersLength);
 
   [
     appHomeElement,

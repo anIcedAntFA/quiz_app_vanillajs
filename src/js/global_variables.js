@@ -60,10 +60,11 @@ const toastWrapperElement = getElement('[data-toast]');
 const modalWrapperElement = getElement('[data-modal]');
 
 //* CONSTANTS
-const TIME_PER_QUESTION = 10;
+const TIME_PER_QUESTION = 40;
 const POINT_PLUS = 5;
 const POINT_MINUS = 2;
 const ONE_TIME = 1;
+const QUESTIONS_API_URL = 'https://api.npoint.io/ae231eaa6937096d0d3e';
 
 //* HOME
 let isSavedPlayerName = false;
@@ -116,4 +117,3 @@ let formattedQuestions;
 let questionsOutput = [];
 let questionIndex1 = [];
 let questionIndex2;
-const urlQuestionsList = 'https://api.npoint.io/ae231eaa6937096d0d3e';

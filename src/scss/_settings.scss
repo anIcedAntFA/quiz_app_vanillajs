@@ -32,7 +32,7 @@
   gap: 2rem;
 
   width: 100%;
-  padding: 1rem 1.6rem 0 1.6rem;
+  padding: 2rem 2rem 0 2rem;
   border: 3px solid var(--pink);
   border-radius: var(--border-radius-primary);
   border-bottom-width: 6px;
@@ -90,7 +90,7 @@
 }
 
 .form__control {
-  width: 32rem;
+  width: 35rem;
   height: 5.2rem;
   padding: 0.8rem 1.2rem;
   border: var(--form-border);
@@ -114,9 +114,9 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 1.2rem;
+  gap: 1.6rem;
 
-  margin: 1.6rem 0 1rem 0;
+  margin: 2rem 0 1rem 0;
 }
 
 .genre__wrapper {

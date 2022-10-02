@@ -8,7 +8,7 @@ const renderAppInformation = () => {
     message: `
       <div class="modal__info-app">
         <div class="wrapper">
-          <strong>Name:</strong> Javascript Quiz App Version 1.6
+          <strong>Name:</strong> Javascript Quiz App Version 1.65
         </div>
         <div class="wrapper">
           <strong>Main features:</strong>
@@ -83,12 +83,13 @@ const renderWarningDuplicateName = () => {
     message: `
       Keep calm Bro!
       <br>
-      This username/nickname already exists in our database. 💔. If you have created this username from your last play,  
-      you could opt to have it reset to your latest result by pressing the 
+      This username/nickname already exists in our database 💔.
+      <br> 
+      If you have created this username from your last play, you could opt to have it reset to your latest result by pressing the 
       <span style="font-family: 'cubano', sans-serif; font-size: var(--font-size-body); color: var(--green)">agree button</span> 
       and save a new one.
       <br>
-      If not, please close this pop-up, then type an another cool 💓nickname💓.
+      If you haven't, please close this pop-up, then type an another cool 💓nickname💓.
       <br>
       <br>
       Sorry for the inconvenience 😇.

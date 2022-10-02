@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
 
   margin-top: 4rem;
   padding: 0 2rem;
@@ -26,7 +26,7 @@
 }
 
 .rules__title {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   min-width: 40rem;
   width: 80%;
   padding: 1rem 1.2rem;
@@ -70,7 +70,10 @@
   }
 }
 
-/* Gender Details */
+.form__rules {
+  margin: 1.6rem 0;
+}
+
 .rules__decision {
   justify-content: center;
   gap: 1.6rem;
@@ -96,7 +99,7 @@
 .decision__category {
   display: flex;
   flex-direction: row;
-  width: 55%;
+  width: 50%;
   justify-content: space-around;
 }
 

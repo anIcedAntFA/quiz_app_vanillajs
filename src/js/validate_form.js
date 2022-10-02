@@ -69,7 +69,7 @@ function validateSettings() {
       questionDifficulty = dataSettings.difficulty;
       questionType = dataSettings.type;
       questionCategory = dataSettings.category;
-
+      console.log(dataSettings);
       showSuccessToastSettings();
     },
   });

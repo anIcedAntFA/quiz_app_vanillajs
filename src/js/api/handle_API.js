@@ -1,6 +1,23 @@
 import { getSettingsValue } from '../common_function.js';
 //********************************************************
 
+async function updateShuffledQuestions() {
+  questionsOutput = [];
+  const loadedQuestions = await handleApiQuestions();
+  handleLoadedQuestions(loadedQuestions);
+  shuffledQuestions = questionsOutput.sort(() => Math.random() - 0.5);
+}
+
+async function handleApiQuestions() {
+  try {
+    const response = await fetch(QUESTIONS_API_URL);
+    const loadedQuestions = await response.json();
+    return loadedQuestions;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 function handleLoadedQuestions(loadedQuestions) {
   //* Filter questions in turn by difficulty, type & category
   if (getSettingsValue().questionType !== 'random') {
@@ -29,30 +46,6 @@ function handleLoadedQuestions(loadedQuestions) {
   }
 
   return questionsOutput;
-}
-
-async function handleApiQuestions() {
-  try {
-    const response = await fetch(urlQuestionsList);
-    const loadedQuestions = await response.json();
-    return loadedQuestions;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// function handleApiQuestions() {
-//   fetch(urlQuestionsList, {})
-//     .then((response) => response.json())
-//     .then(handleLoadedQuestions)
-//     .catch((error) => console.log(error));
-// }
-
-async function updateShuffledQuestions() {
-  questionsOutput = [];
-  const loadedQuestions = await handleApiQuestions();
-  handleLoadedQuestions(loadedQuestions);
-  shuffledQuestions = questionsOutput.sort(() => Math.random() - 0.5);
 }
 
 export default updateShuffledQuestions;
